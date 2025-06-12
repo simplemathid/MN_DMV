@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minnesota Driver's Permit Practice Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f0ff',
+                            100: '#e4e3ff',
+                            200: '#cdccff',
+                            300: '#aba8ff',
+                            400: '#8a7cff',
+                            500: '#7155ff',
+                            600: '#5d5cde',
+                            700: '#4e43bb',
+                            800: '#3f3a96',
+                            900: '#343376',
+                        },
+                        success: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        },
+                        error: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                        },
+                        dark: {
+                            50: '#f8fafc',
+                            800: '#1e293b',
+                            850: '#172033',
+                            900: '#0f172a',
+                            950: '#080c18',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'bounce-once': 'bounce 0.5s ease-in-out 1',
+                        'shake': 'shake 0.5s ease-in-out',
+                        'scale-in': 'scaleIn 0.3s ease-out forwards',
+                        'fade-in': 'fadeIn 0.3s ease-out forwards',
+                        'slide-up': 'slideUp 0.3s ease-out forwards',
+                        'pulse-slow': 'pulse 2.5s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        shake: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-5px)' },
+                            '20%, 40%, 60%, 80%': { transform: 'translateX(5px)' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(10px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom keyframes */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(10px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Custom background gradients */
+        .bg-gradient-light {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        }
+
+        .bg-gradient-dark {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button hover effects */
+        .option-button {
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .option-button:active {
+            transform: translateY(0);
+        }
+
+        /* Cool background with floating shapes */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .shape-1 {
+            top: 20%;
+            left: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(113,85,255,0.2) 0%, rgba(113,85,255,0) 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            bottom: 10%;
+            right: 15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, rgba(16,185,129,0) 70%);
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .shape-3 {
+            top: 50%;
+            right: 5%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(239,68,68,0.2) 0%, rgba(239,68,68,0) 70%);
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .dark .shape-1 {
+            background: radial-gradient(circle, rgba(113,85,255,0.15) 0%, rgba(113,85,255,0) 70%);
+        }
+
+        .dark .shape-2 {
+            background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(16,185,129,0) 70%);
+        }
+
+        .dark .shape-3 {
+            background: radial-gradient(circle, rgba(239,68,68,0.15) 0%, rgba(239,68,68,0) 70%);
+        }
+
+        /* No selection on buttons */
+        button {
+            user-select: none;
+        }
+
+        /* Game container */
+        .quiz-container {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans bg-gradient-light dark:bg-gradient-dark text-gray-800 dark:text-gray-100 transition-colors duration-300 selection:bg-primary-200 dark:selection:bg-primary-700">
+    <!-- Background shapes -->
+    <div class="bg-shapes">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+    </div>
+
+    <div class="relative min-h-screen px-4 py-8 mx-auto quiz-container">
+        <!-- Theme toggle button -->
+        <button id="theme-toggle" class="absolute z-10 p-2 transition-colors rounded-full top-4 right-4 text-primary-600 hover:bg-gray-100 dark:text-primary-300 dark:hover:bg-dark-800">
+            <!-- Sun icon (for dark mode) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-5 h-5 dark:block" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+            </svg>
+            <!-- Moon icon (for light mode) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 dark:hidden" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+            </svg>
+        </button>
+
+        <!-- Home Screen -->
+        <section id="home-screen" class="animate-scale-in">
+            <div class="text-center">
+                <div class="inline-block animate-float">
+                    <h1 class="mb-2 text-3xl font-bold tracking-tight bg-gradient-to-r from-primary-500 to-purple-600 dark:from-primary-400 dark:to-purple-500 bg-clip-text text-transparent">Minnesota Driver's Permit Test</h1>
+                </div>
+                <p class="mb-6 text-gray-600 dark:text-gray-300">Test your knowledge of Minnesota driving laws and road rules</p>
+            </div>
+
+            <div class="p-6 mb-6 text-center rounded-2xl shadow-lg glass-card">
+                <div class="prose dark:prose-invert mx-auto">
+                    <h2 class="text-xl font-semibold mb-4">Prepare for Your Minnesota Driver's Permit Test</h2>
+                    <p class="mb-4">This practice test helps you prepare for the official Minnesota driver's permit examination. The test consists of 20 multiple-choice questions based on the Minnesota Driver's Manual.</p>
+                    <p class="mb-6">To pass, you need to score at least 80% (16 out of 20 questions). Take your time and good luck!</p>
+                    
+                    <div class="flex justify-center mt-8">
+                        <button id="start-test-btn" class="px-6 py-3 font-medium text-white transition-all duration-200 rounded-full hover:shadow-md active:scale-95 bg-primary-500 hover:bg-primary-600 animate-pulse-slow">
+                            Start Practice Test
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Test Screen -->
+        <section id="test-screen" class="hidden animate-scale-in">
+            <!-- Progress bar and counter -->
+            <div class="mb-6 glass-card p-4 rounded-xl flex justify-between items-center">
+                <span id="question-counter" class="text-sm font-medium text-gray-600 dark:text-gray-300">Question 1 of 20</span>
+                <div class="w-48 h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full">
+                    <div id="progress-bar" class="h-2.5 rounded-full bg-success-500" style="width: 5%"></div>
+                </div>
+            </div>
+
+            <!-- Question card -->
+            <div class="p-6 mb-6 rounded-2xl shadow-lg glass-card">
+                <h2 id="question-text" class="text-xl font-medium mb-6"></h2>
+                
+                <div id="options-container" class="space-y-3 animate-slide-up">
+                    <!-- Options will be dynamically inserted here -->
+                </div>
+                
+                <div id="feedback-container" class="hidden mt-6 p-4 rounded-xl"></div>
+                
+                <div id="error-container" class="hidden mt-6 p-4 bg-error-50 dark:bg-error-900/20 text-error-600 dark:text-error-400 rounded-xl">
+                    <p id="error-message"></p>
+                </div>
+                
+                <div class="flex justify-center gap-4 mt-6">
+                    <button id="next-btn" class="hidden px-6 py-3 font-medium text-white transition-all duration-200 rounded-full hover:shadow-md active:scale-95 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 disabled:cursor-not-allowed">
+                        Next Question
+                    </button>
+                    <button id="skip-btn" class="hidden px-6 py-3 font-medium transition-all duration-200 rounded-full hover:shadow-md active:scale-95 bg-gray-200 hover:bg-gray-300 text-gray-700 dark:bg-dark-800 dark:hover:bg-dark-700 dark:text-gray-200">
+                        Skip Question
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Results Screen -->
+        <section id="results-screen" class="hidden animate-scale-in">
+            <div class="p-6 mb-8 text-center rounded-2xl shadow-lg glass-card">
+                <h2 class="text-2xl font-bold mb-4">Test Results</h2>
+                
+                <div id="score-container" class="mb-6">
+                    <div id="score-display" class="text-5xl font-bold mb-2 text-primary-600 dark:text-primary-400"></div>
+                    <div id="pass-fail-display" class="text-xl font-semibold mb-4"></div>
+                    <div id="score-details" class="text-gray-600 dark:text-gray-300"></div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <button id="retake-test-btn" class="px-6 py-3 font-medium text-white transition-all duration-200 rounded-full hover:shadow-md active:scale-95 bg-primary-500 hover:bg-primary-600">
+                        Restart
+                    </button>
+                    <button id="return-home-btn" class="px-6 py-3 font-medium transition-all duration-200 rounded-full hover:shadow-md active:scale-95 bg-gray-200 hover:bg-gray-300 text-gray-700 dark:bg-dark-800 dark:hover:bg-dark-700 dark:text-gray-200">
+                        Return Home
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6 rounded-2xl shadow-lg glass-card">
+                <h3 class="font-semibold mb-4 text-lg">Question Review</h3>
+                <div id="questions-review" class="space-y-4">
+                    <!-- Results will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Check for dark mode preference
+        function updateTheme() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        // Initial theme check
+        updateTheme();
+
+        // Theme toggle button
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.add('dark');
+            }
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+        
+        // Question bank
+        const questionBank = [
+            {
+                question: "What does a solid yellow line on your side of the center line indicate?",
+                options: [
+                    "Passing is permitted when safe",
+                    "Passing is not permitted",
+                    "Driving in both directions is permitted",
+                    "The road is one-way only"
+                ],
+                correctAnswer: 1 // index of correct answer
+            },
+            {
+                question: "When approaching a stop sign, where should you come to a complete stop?",
+                options: [
+                    "Wherever you can see cross traffic",
+                    "At the stop sign itself",
+                    "Before the crosswalk or stop line, if present",
+                    "In the middle of the intersection"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What should you do when approaching a flashing yellow light?",
+                options: [
+                    "Come to a complete stop",
+                    "Proceed with caution",
+                    "Speed up to clear the intersection quickly",
+                    "Wait until it turns green"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "In Minnesota, what is the minimum safe following distance in good conditions?",
+                options: [
+                    "1 second behind the vehicle ahead",
+                    "2 seconds behind the vehicle ahead",
+                    "3 seconds behind the vehicle ahead",
+                    "5 car lengths"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "When is it legal to use a cell phone while driving in Minnesota?",
+                options: [
+                    "When stopped at a red light",
+                    "When using hands-free technology",
+                    "When driving under 30 mph",
+                    "When no other vehicles are around"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the speed limit in urban residential areas if not posted?",
+                options: [
+                    "20 mph",
+                    "25 mph",
+                    "30 mph",
+                    "35 mph"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "When driving in fog, you should use:",
+                options: [
+                    "High beam headlights",
+                    "Emergency flashers (hazard lights)",
+                    "Low beam headlights",
+                    "No lights to avoid reflection"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "A driver approaching a roundabout must:",
+                options: [
+                    "Always come to a complete stop",
+                    "Yield to vehicles already in the roundabout",
+                    "Accelerate to merge with traffic",
+                    "Sound horn before entering"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When must you yield to a pedestrian?",
+                options: [
+                    "Only at marked crosswalks",
+                    "Only when traffic signals direct you to",
+                    "Only during daylight hours",
+                    "At all intersections, whether marked or unmarked"
+                ],
+                correctAnswer: 3
+            },
+            {
+                question: "What is the first thing you should do if your vehicle starts to skid?",
+                options: [
+                    "Brake hard immediately",
+                    "Take your foot off the accelerator",
+                    "Turn the steering wheel in the opposite direction",
+                    "Shift to neutral"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What does a diamond-shaped sign indicate?",
+                options: [
+                    "Stop ahead",
+                    "School zone",
+                    "Warning or hazard ahead",
+                    "Construction zone"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the proper action when an emergency vehicle with flashing lights approaches?",
+                options: [
+                    "Speed up to get out of the way",
+                    "Pull over to the right and stop",
+                    "Maintain your speed and position",
+                    "Change lanes if possible"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What color are signs that give information about directions and distances?",
+                options: [
+                    "Red",
+                    "Yellow",
+                    "Green",
+                    "Blue or green"
+                ],
+                correctAnswer: 3
+            },
+            {
+                question: "When turning right on a red light, you must:",
+                options: [
+                    "Come to a complete stop first and yield to cross traffic and pedestrians",
+                    "Slow down and check for oncoming traffic",
+                    "Signal and turn immediately",
+                    "Wait for a green light"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "In Minnesota, when two vehicles arrive at an unmarked or four-way stop at the same time, who has the right of way?",
+                options: [
+                    "The vehicle on the right",
+                    "The vehicle on the left",
+                    "The vehicle going straight",
+                    "The larger vehicle"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "What is the maximum blood alcohol concentration (BAC) for drivers under 21 in Minnesota?",
+                options: [
+                    "0.02%",
+                    "0.04%",
+                    "0.08%",
+                    "Any detectable amount is illegal"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "When driving near a school bus with flashing red lights, you must:",
+                options: [
+                    "Slow down and proceed with caution",
+                    "Stop only if you're behind the bus",
+                    "Stop at least 20 feet from the bus, whether behind it or approaching it",
+                    "Change lanes and pass carefully"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the primary purpose of an HOV (High Occupancy Vehicle) lane?",
+                options: [
+                    "To reduce traffic congestion by encouraging carpooling",
+                    "For emergency vehicles only",
+                    "For trucks and large vehicles",
+                    "For passing slower vehicles"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "What does a solid white line between lanes indicate?",
+                options: [
+                    "Changing lanes is encouraged",
+                    "Changing lanes is discouraged",
+                    "The lane is reserved for turning",
+                    "The lane is reserved for emergency vehicles"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When parking uphill with a curb, which way should you turn your wheels?",
+                options: [
+                    "Away from the curb",
+                    "Toward the curb",
+                    "Parallel to the curb",
+                    "It doesn't matter"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "What does a green arrow signal mean?",
+                options: [
+                    "Yield to oncoming traffic before turning",
+                    "Stop, then proceed if clear",
+                    "You may proceed in the direction of the arrow",
+                    "The light will soon change to red"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "How many drinks does it take to affect driving ability?",
+                options: [
+                    "It depends on your weight",
+                    "At least three drinks",
+                    "Five or more drinks",
+                    "Even one drink can affect driving ability"
+                ],
+                correctAnswer: 3
+            },
+            {
+                question: "What does a posted speed limit tell you?",
+                options: [
+                    "The minimum legal speed during ideal conditions",
+                    "The maximum safe speed during ideal conditions",
+                    "The exact speed you must drive at all times",
+                    "The recommended speed during bad weather"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When approaching a railroad crossing with flashing lights, you should:",
+                options: [
+                    "Speed up to cross quickly",
+                    "Stop at least 15 feet from the nearest rail and wait until it's safe to cross",
+                    "Slow down and check for trains",
+                    "Stop only if you see a train approaching"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What should you do if your car starts to hydroplane?",
+                options: [
+                    "Brake firmly and steer straight ahead",
+                    "Accelerate slightly and steer in the direction you want to go",
+                    "Take your foot off the gas pedal and do not brake or turn suddenly",
+                    "Turn your wheel quickly in the opposite direction of the skid"
+                ],
+                correctAnswer: 2
+            }
+        ];
+        
+        // Test configuration
+        const testConfig = {
+            questionsPerTest: 20,
+            passingPercentage: 80
+        };
+        
+        // Application state
+        let currentTest = {
+            questions: [],
+            currentQuestionIndex: 0,
+            selectedAnswers: [],
+            score: 0
+        };
+        
+        // DOM elements
+        const homeScreen = document.getElementById('home-screen');
+        const testScreen = document.getElementById('test-screen');
+        const resultsScreen = document.getElementById('results-screen');
+        const startTestBtn = document.getElementById('start-test-btn');
+        const questionCounter = document.getElementById('question-counter');
+        const progressBar = document.getElementById('progress-bar');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const feedbackContainer = document.getElementById('feedback-container');
+        const errorContainer = document.getElementById('error-container');
+        const errorMessage = document.getElementById('error-message');
+        const nextBtn = document.getElementById('next-btn');
+        const skipBtn = document.getElementById('skip-btn');
+        const scoreDisplay = document.getElementById('score-display');
+        const passFailDisplay = document.getElementById('pass-fail-display');
+        const scoreDetails = document.getElementById('score-details');
+        const questionsReview = document.getElementById('questions-review');
+        const retakeTestBtn = document.getElementById('retake-test-btn');
+        const returnHomeBtn = document.getElementById('return-home-btn');
+        
+        // Initialize application
+        function initApp() {
+            // Add event listeners
+            startTestBtn.addEventListener('click', startTest);
+            nextBtn.addEventListener('click', showNextQuestion);
+            skipBtn.addEventListener('click', skipQuestion);
+            retakeTestBtn.addEventListener('click', startTest);
+            returnHomeBtn.addEventListener('click', returnHome);
+        }
+        
+        // Display error message
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorContainer.classList.remove('hidden');
+            setTimeout(() => {
+                errorContainer.classList.add('hidden');
+            }, 5000); // Hide after 5 seconds
+        }
+
+        // Trigger confetti effect when passing
+        function celebratePass() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#7155FF', '#10B981', '#3B82F6']
+            });
+        }
+        
+        // Start a new test
+        function startTest() {
+            // Reset test state
+            currentTest = {
+                questions: [],
+                currentQuestionIndex: 0,
+                selectedAnswers: [],
+                score: 0
+            };
+            
+            // Select random questions
+            const shuffledQuestions = [...questionBank].sort(() => 0.5 - Math.random());
+            currentTest.questions = shuffledQuestions.slice(0, testConfig.questionsPerTest);
+            
+            // Show the test screen
+            homeScreen.classList.add('hidden');
+            resultsScreen.classList.add('hidden');
+            testScreen.classList.remove('hidden');
+            
+            // Show the first question
+            showQuestion(0);
+        }
+        
+        // Show a specific question
+        function showQuestion(index) {
+            try {
+                // Check if we have enough questions
+                if (currentTest.questions.length < testConfig.questionsPerTest) {
+                    showError(`Not enough questions available. Need ${testConfig.questionsPerTest} but only have ${currentTest.questions.length}.`);
+                    returnHome();
+                    return;
+                }
+                
+                // Make sure index is valid
+                if (index < 0 || index >= currentTest.questions.length) {
+                    showError(`Invalid question index: ${index}`);
+                    returnHome();
+                    return;
+                }
+                
+                const question = currentTest.questions[index];
+                
+                // Validate question data
+                if (!question || !question.options || !question.options.length) {
+                    showError("Question data is invalid or incomplete");
+                    skipQuestion();
+                    return;
+                }
+                
+                // Update question counter and progress bar
+                questionCounter.textContent = `Question ${index + 1} of ${testConfig.questionsPerTest}`;
+                const progress = ((index + 1) / testConfig.questionsPerTest) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // Display question text with animation
+                questionText.textContent = question.question;
+                questionText.classList.add('animate-fade-in');
+                setTimeout(() => questionText.classList.remove('animate-fade-in'), 300);
+                
+                // Clear previous options and feedback
+                optionsContainer.innerHTML = '';
+                feedbackContainer.classList.add('hidden');
+                nextBtn.classList.add('hidden');
+                
+                // Add skip button for users who want to skip a question
+                skipBtn.classList.remove('hidden');
+                
+                // Add options with animation delay
+                question.options.forEach((option, optIndex) => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.className = 'option-button w-full p-4 text-base font-medium rounded-xl shadow-md dark:shadow-lg bg-white dark:bg-dark-850 hover:bg-gray-50 dark:hover:bg-dark-800 transition-all duration-200 animate-scale-in';
+                    button.style.animationDelay = `${optIndex * 0.1}s`;
+                    button.addEventListener('click', () => handleAnswerSelection(optIndex));
+                    optionsContainer.appendChild(button);
+                });
+            } catch (error) {
+                console.error("Error showing question:", error);
+                showError("An error occurred while displaying the question. Please try again.");
+                skipQuestion();
+            }
+        }
+        
+        // Skip the current question
+        function skipQuestion() {
+            // Mark this question as skipped (undefined answer)
+            currentTest.selectedAnswers[currentTest.currentQuestionIndex] = undefined;
+            
+            // Show a brief notification
+            feedbackContainer.innerHTML = '<div class="text-gray-600 dark:text-gray-400 font-medium">Question skipped</div>';
+            feedbackContainer.classList.remove('hidden');
+            feedbackContainer.classList.add('bg-gray-50', 'dark:bg-gray-800/50', 'rounded-xl');
+            
+            // Hide skip button
+            skipBtn.classList.add('hidden');
+            
+            // Move to next question after a short delay
+            setTimeout(() => {
+                showNextQuestion();
+            }, 1000);
+        }
+        
+        // Handle answer selection
+        function handleAnswerSelection(selectedIndex) {
+            // Store the selected answer
+            currentTest.selectedAnswers[currentTest.currentQuestionIndex] = selectedIndex;
+            
+            // Highlight all options to show correct/incorrect
+            const options = optionsContainer.querySelectorAll('.option-button');
+            const correctIndex = currentTest.questions[currentTest.currentQuestionIndex].correctAnswer;
+            
+            options.forEach((option, index) => {
+                // Disable all option buttons
+                option.disabled = true;
+                
+                // Style based on correctness
+                if (index === correctIndex) {
+                    option.classList.add('bg-success-100', 'dark:bg-success-900/30', 'border-success-300', 'dark:border-success-700');
+                } else if (index === selectedIndex) {
+                    if (selectedIndex !== correctIndex) {
+                        option.classList.add('bg-error-100', 'dark:bg-error-900/30', 'border-error-300', 'dark:border-error-700', 'animate-shake');
+                    }
+                } else {
+                    option.classList.add('opacity-50');
+                }
+            });
+            
+            // Show feedback
+            const isCorrect = selectedIndex === correctIndex;
+            
+            if (isCorrect) {
+                feedbackContainer.innerHTML = '<div class="text-success-600 dark:text-success-400 font-medium">Correct!</div>';
+                feedbackContainer.classList.add('bg-success-50', 'dark:bg-success-900/20', 'rounded-xl');
+            } else {
+                feedbackContainer.innerHTML = `
+                    <div class="text-error-600 dark:text-error-400 font-medium">
+                        Incorrect. The correct answer is: ${currentTest.questions[currentTest.currentQuestionIndex].options[correctIndex]}
+                    </div>
+                `;
+                feedbackContainer.classList.add('bg-error-50', 'dark:bg-error-900/20', 'rounded-xl');
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+            
+            // Hide skip button
+            skipBtn.classList.add('hidden');
+            
+            // Show next button
+            nextBtn.classList.remove('hidden');
+            nextBtn.disabled = false;
+            
+            // Update score if correct
+            if (isCorrect) {
+                currentTest.score++;
+            }
+        }
+        
+        // Show the next question or results if done
+        function showNextQuestion() {
+            currentTest.currentQuestionIndex++;
+            
+            if (currentTest.currentQuestionIndex < testConfig.questionsPerTest) {
+                showQuestion(currentTest.currentQuestionIndex);
+            } else {
+                showResults();
+            }
+        }
+        
+        // Show test results
+        function showResults() {
+            try {
+                // Hide test screen
+                testScreen.classList.add('hidden');
+                resultsScreen.classList.remove('hidden');
+                
+                // Count skipped questions
+                const skippedCount = currentTest.selectedAnswers.filter(answer => answer === undefined).length;
+                
+                // Calculate percentage score based on answered questions
+                const percentage = (currentTest.score / testConfig.questionsPerTest) * 100;
+                const passed = percentage >= testConfig.passingPercentage;
+                
+                // Update score display
+                scoreDisplay.textContent = `${percentage.toFixed(0)}%`;
+                
+                if (passed) {
+                    passFailDisplay.textContent = 'Passed! 🎉';
+                    passFailDisplay.classList.add('text-success-600', 'dark:text-success-400');
+                    // Celebrate with confetti
+                    setTimeout(celebratePass, 500);
+                } else {
+                    passFailDisplay.textContent = 'Failed';
+                    passFailDisplay.classList.add('text-error-600', 'dark:text-error-400');
+                }
+                
+                let scoreDetailsText = `You answered ${currentTest.score} out of ${testConfig.questionsPerTest} questions correctly.`;
+                if (skippedCount > 0) {
+                    scoreDetailsText += ` (${skippedCount} question${skippedCount > 1 ? 's' : ''} skipped)`;
+                }
+                scoreDetails.textContent = scoreDetailsText;
+                
+                // Generate question review
+                questionsReview.innerHTML = '';
+                
+                currentTest.questions.forEach((question, index) => {
+                    const userAnswer = currentTest.selectedAnswers[index];
+                    const correctAnswer = question.correctAnswer;
+                    
+                    // Handle three states: correct, incorrect, or skipped
+                    let isCorrect = false;
+                    let isSkipped = userAnswer === undefined;
+                    
+                    if (!isSkipped) {
+                        isCorrect = userAnswer === correctAnswer;
+                    }
+                    
+                    let reviewClass = '';
+                    if (isSkipped) {
+                        reviewClass = 'border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50';
+                    } else {
+                        reviewClass = isCorrect ? 
+                            'border border-success-200 dark:border-success-800 bg-success-50 dark:bg-success-900/20' : 
+                            'border border-error-200 dark:border-error-800 bg-error-50 dark:bg-error-900/20';
+                    }
+                    
+                    const reviewItem = document.createElement('div');
+                    reviewItem.className = `p-3 rounded-xl ${reviewClass} animate-fade-in`;
+                    reviewItem.style.animationDelay = `${index * 0.05}s`;
+                    
+                    let userAnswerText = 'Skipped';
+                    if (!isSkipped) {
+                        userAnswerText = question.options[userAnswer] || 'Invalid answer';
+                    }
+                    
+                    reviewItem.innerHTML = `
+                        <p class="font-medium mb-2">${index + 1}. ${question.question}</p>
+                        <p class="text-sm ${isSkipped ? 'text-gray-500 dark:text-gray-400' : ''}">Your answer: ${userAnswerText}</p>
+                        <p class="text-sm ${isCorrect ? 'text-success-600 dark:text-success-400' : isSkipped ? 'text-gray-600 dark:text-gray-300' : 'text-error-600 dark:text-error-400'}">
+                            Correct answer: ${question.options[correctAnswer]}
+                        </p>
+                    `;
+                    
+                    questionsReview.appendChild(reviewItem);
+                });
+            } catch (error) {
+                console.error("Error showing results:", error);
+                showError("An error occurred while displaying results. Please try again.");
+                returnHome();
+            }
+        }
+        
+        // Return to the home screen
+        function returnHome() {
+            resultsScreen.classList.add('hidden');
+            homeScreen.classList.remove('hidden');
+            
+            // Reset UI elements
+            passFailDisplay.classList.remove('text-success-600', 'dark:text-success-400', 'text-error-600', 'dark:text-error-400');
+        }
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
