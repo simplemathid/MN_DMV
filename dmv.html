@@ -279,7 +279,7 @@
                 <div class="prose dark:prose-invert mx-auto">
                     <h2 class="text-xl font-semibold mb-4">Prepare for Your Minnesota Driver's Permit Test</h2>
                     <p class="mb-4">This practice test helps you prepare for the official Minnesota driver's permit examination. The test consists of 20 multiple-choice questions based on the Minnesota Driver's Manual.</p>
-                    <p class="mb-6">To pass, you need to score at least 80% (16 out of 20 questions). Take your time and good luck!</p>
+                    <p class="mb-6">To pass, you need to score at least 80% (16 out of 20 questions). Take your time!</p>
                     
                     <div class="flex justify-center mt-8">
                         <button id="start-test-btn" class="px-6 py-3 font-medium text-white transition-all duration-200 rounded-full hover:shadow-md active:scale-95 bg-primary-500 hover:bg-primary-600 animate-pulse-slow">
@@ -389,57 +389,267 @@
         // Question bank
         const questionBank = [
             {
-                question: "What does a solid yellow line on your side of the center line indicate?",
+                question: "How long do new Minnesota residents with a valid out-of-state driver's license have to get a Minnesota license after becoming a resident?",
                 options: [
-                    "Passing is permitted when safe",
-                    "Passing is not permitted",
-                    "Driving in both directions is permitted",
-                    "The road is one-way only"
+                    "30 days",
+                    "60 days",
+                    "90 days",
+                    "6 months"
                 ],
                 correctAnswer: 1 // index of correct answer
             },
             {
-                question: "When approaching a stop sign, where should you come to a complete stop?",
+                question: "At what age can you get a motorized bicycle (moped) permit in Minnesota?",
                 options: [
-                    "Wherever you can see cross traffic",
-                    "At the stop sign itself",
-                    "Before the crosswalk or stop line, if present",
-                    "In the middle of the intersection"
-                ],
-                correctAnswer: 2
-            },
-            {
-                question: "What should you do when approaching a flashing yellow light?",
-                options: [
-                    "Come to a complete stop",
-                    "Proceed with caution",
-                    "Speed up to clear the intersection quickly",
-                    "Wait until it turns green"
+                    "14",
+                    "15",
+                    "16",
+                    "18"
                 ],
                 correctAnswer: 1
             },
             {
-                question: "In Minnesota, what is the minimum safe following distance in good conditions?",
+                question: "What is the most common driver's license for Minnesota drivers?",
                 options: [
-                    "1 second behind the vehicle ahead",
-                    "2 seconds behind the vehicle ahead",
-                    "3 seconds behind the vehicle ahead",
-                    "5 car lengths"
+                    "Class A",
+                    "Class B",
+                    "Class C",
+                    "Class D"
                 ],
-                correctAnswer: 2
+                correctAnswer: 3
             },
             {
-                question: "When is it legal to use a cell phone while driving in Minnesota?",
+                question: "What is the maximum height for a vehicle and its load in Minnesota?",
                 options: [
-                    "When stopped at a red light",
-                    "When using hands-free technology",
-                    "When driving under 30 mph",
-                    "When no other vehicles are around"
+                    "12 feet 6 inches",
+                    "13 feet 6 inches",
+                    "14 feet 6 inches",
+                    "15 feet 6 inches"
                 ],
                 correctAnswer: 1
             },
             {
-                question: "What is the speed limit in urban residential areas if not posted?",
+                question: "If your Minnesota driver's license has been expired for more than one year but less than five years, what tests must you pass to get a new license?",
+                options: [
+                    "Road test only",
+                    "Written test only",
+                    "Written test and vision test",
+                    "Written test, vision test, and road test"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "If you are 21 or older and have a valid, unexpired license from another U.S. state, what tests are you *not* required to take when applying for a Minnesota driver's license?",
+                options: [
+                    "Written test",
+                    "Road test",
+                    "Vision test",
+                    "Written and road tests"
+                ],
+                correctAnswer: 3
+            },
+            {
+                question: "How often must a driver's license issued by the state of Minnesota typically be renewed after you reach 21 years old?",
+                options: [
+                    "Every year",
+                    "Every two years",
+                    "Every three years",
+                    "Every four years"
+                ],
+                correctAnswer: 3
+            },
+            {
+                question: "If your documents for a driver's license application are not in English, what must you provide?",
+                options: [
+                    "A notarized statement",
+                    "A qualified English translation",
+                    "An affidavit from a lawyer",
+                    "A second form of ID"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the passing percentage for the written test in Minnesota?",
+                options: [
+                    "70%",
+                    "75%",
+                    "80%",
+                    "85%"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the minimum vision requirement for normal or corrected vision to pass the vision screening?",
+                options: [
+                    "20/20",
+                    "20/30",
+                    "20/40",
+                    "20/50"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the minimum peripheral vision required to pass the vision screening?",
+                options: [
+                    "90 degrees",
+                    "100 degrees",
+                    "105 degrees",
+                    "110 degrees"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "How many hours of supervised driving, including nighttime hours, are required for a provisional license if not taking a parent class?",
+                options: [
+                    "30 hours (10 nighttime)",
+                    "40 hours (15 nighttime)",
+                    "50 hours (15 nighttime)",
+                    "60 hours (20 nighttime)"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "How far ahead must high beam headlights make objects visible on the road?",
+                options: [
+                    "200 feet",
+                    "350 feet",
+                    "500 feet",
+                    "1000 feet"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When must headlights be turned on?",
+                options: [
+                    "Only during heavy rain",
+                    "From sunset to sunrise",
+                    "When visibility is less than 200 feet",
+                    "Only on highways"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the minimum legal tread depth for tires?",
+                options: [
+                    "1/32 inch",
+                    "1/16 inch",
+                    "1/8 inch",
+                    "1/4 inch"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "Where can you find your vehicle's recommended tire pressure?",
+                options: [
+                    "On the tire's sidewall",
+                    "On a sticker inside the driver's door or in the owner's manual",
+                    "In the glove compartment",
+                    "Online only"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the maximum percentage of light a window tint applied to side or rear windows after Aug. 1, 1985, can *transmit*?",
+                options: [
+                    "20%",
+                    "35%",
+                    "50%",
+                    "70%"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the maximum percentage of light a window tint applied to side or rear windows after Aug. 1, 1985, can *reflect*?",
+                options: [
+                    "10%",
+                    "20%",
+                    "30%",
+                    "40%"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the most important safety equipment in your vehicle?",
+                options: [
+                    "Airbags",
+                    "Horn",
+                    "Seat belts",
+                    "Antilock brakes"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "At what age must children ride in the back seat if it is available?",
+                options: [
+                    "Under 8 years old",
+                    "Under 10 years old",
+                    "Under 13 years old",
+                    "Under 16 years old"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "Children under what age must ride in a rear-facing car seat until they reach the weight or height limit of the car seat?",
+                options: [
+                    "Under 2 years old",
+                    "Under 4 years old",
+                    "Under 5 years old",
+                    "Under 7 years old"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "What is the recommended distance to keep between yourself and the steering wheel when your vehicle has an airbag?",
+                options: [
+                    "At least 5 inches",
+                    "At least 8 inches",
+                    "At least 10 inches",
+                    "At least 12 inches"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "How far can a load project in front of the front wheels or bumper of any motor vehicle?",
+                options: [
+                    "1 foot",
+                    "2 feet",
+                    "3 feet",
+                    "4 feet"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "If a load extends four feet or more from the rear of any vehicle, what must be attached to the end of the load at night?",
+                options: [
+                    "A white light",
+                    "A red light or lamp",
+                    "A green flag",
+                    "A yellow reflective tape"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is Minnesota's basic speed law?",
+                options: [
+                    "Drive the posted speed limit at all times",
+                    "Drive at a speed reasonable for current conditions",
+                    "Drive at least 45 mph on all roads",
+                    "Always drive 10 mph below the posted limit"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the speed limit in alleys in Minnesota, unless otherwise posted?",
+                options: [
+                    "5 mph",
+                    "10 mph",
+                    "15 mph",
+                    "20 mph"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the speed limit on urban or town roads in Minnesota, unless otherwise posted?",
                 options: [
                     "20 mph",
                     "25 mph",
@@ -449,194 +659,1864 @@
                 correctAnswer: 2
             },
             {
-                question: "When driving in fog, you should use:",
+                question: "When driving, how far before turning should you activate your signal?",
                 options: [
-                    "High beam headlights",
-                    "Emergency flashers (hazard lights)",
-                    "Low beam headlights",
-                    "No lights to avoid reflection"
+                    "50 feet",
+                    "75 feet",
+                    "100 feet",
+                    "200 feet"
                 ],
                 correctAnswer: 2
             },
             {
-                question: "A driver approaching a roundabout must:",
+                question: "What are blind spots?",
                 options: [
-                    "Always come to a complete stop",
-                    "Yield to vehicles already in the roundabout",
-                    "Accelerate to merge with traffic",
-                    "Sound horn before entering"
+                    "Areas directly in front of your vehicle",
+                    "Areas around your vehicle where your view is blocked",
+                    "Areas where traffic lights are not visible",
+                    "Areas with poor road conditions"
                 ],
                 correctAnswer: 1
             },
             {
-                question: "When must you yield to a pedestrian?",
+                question: "When turning right on a red light, after stopping, what must you do before turning?",
                 options: [
-                    "Only at marked crosswalks",
-                    "Only when traffic signals direct you to",
-                    "Only during daylight hours",
-                    "At all intersections, whether marked or unmarked"
-                ],
-                correctAnswer: 3
-            },
-            {
-                question: "What is the first thing you should do if your vehicle starts to skid?",
-                options: [
-                    "Brake hard immediately",
-                    "Take your foot off the accelerator",
-                    "Turn the steering wheel in the opposite direction",
-                    "Shift to neutral"
+                    "Wait for a green arrow",
+                    "Ensure the intersection is clear of pedestrians and traffic",
+                    "Honk your horn",
+                    "Accelerate quickly"
                 ],
                 correctAnswer: 1
             },
             {
-                question: "What does a diamond-shaped sign indicate?",
+                question: "When waiting to make a left turn at a green light with oncoming traffic, where should you position your car?",
                 options: [
-                    "Stop ahead",
-                    "School zone",
-                    "Warning or hazard ahead",
-                    "Construction zone"
+                    "Before the intersection",
+                    "Into the intersection where your body is even with the curb line",
+                    "To the right of the lane",
+                    "In the middle of the block"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When parallel parking, your vehicle's wheels closest to the curb should be no more than how many inches from the curb?",
+                options: [
+                    "6 inches",
+                    "12 inches",
+                    "18 inches",
+                    "24 inches"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "Where is parking generally NOT allowed?",
+                options: [
+                    "On a residential street",
+                    "Within 10 feet of a fire hydrant",
+                    "In a private driveway",
+                    "On a designated parking spot"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "If you are parking on the highway at night and need lights, how far must your vehicle's lights be visible?",
+                options: [
+                    "100 feet",
+                    "300 feet",
+                    "500 feet",
+                    "1000 feet"
                 ],
                 correctAnswer: 2
             },
             {
-                question: "What is the proper action when an emergency vehicle with flashing lights approaches?",
+                question: "When stopping at a marked or unmarked crosswalk, what should you *not* do with your vehicle?",
                 options: [
-                    "Speed up to get out of the way",
+                    "Turn off your engine",
+                    "Block the crosswalk",
+                    "Flash your headlights",
+                    "Sound your horn"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the maximum fine for unlawfully passing a school bus with flashing red lights?",
+                options: [
+                    "$100",
+                    "$250",
+                    "$500",
+                    "$1000"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "When approaching an uncontrolled 'T' intersection, who must you yield to if you are the one turning?",
+                options: [
+                    "Only vehicles on your right",
+                    "Only vehicles on your left",
+                    "All cross traffic",
+                    "No one"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "When an emergency vehicle approaches with flashing lights and a siren on a two-way road, what must you do?",
+                options: [
+                    "Speed up and clear the intersection",
                     "Pull over to the right and stop",
-                    "Maintain your speed and position",
-                    "Change lanes if possible"
+                    "Pull over to the left and stop",
+                    "Continue driving at reduced speed"
                 ],
                 correctAnswer: 1
             },
             {
-                question: "What color are signs that give information about directions and distances?",
+                question: "When passing a bicyclist, what is the minimum safe distance you should keep between your car and the bicyclist?",
                 options: [
-                    "Red",
-                    "Yellow",
-                    "Green",
-                    "Blue or green"
-                ],
-                correctAnswer: 3
-            },
-            {
-                question: "When turning right on a red light, you must:",
-                options: [
-                    "Come to a complete stop first and yield to cross traffic and pedestrians",
-                    "Slow down and check for oncoming traffic",
-                    "Signal and turn immediately",
-                    "Wait for a green light"
-                ],
-                correctAnswer: 0
-            },
-            {
-                question: "In Minnesota, when two vehicles arrive at an unmarked or four-way stop at the same time, who has the right of way?",
-                options: [
-                    "The vehicle on the right",
-                    "The vehicle on the left",
-                    "The vehicle going straight",
-                    "The larger vehicle"
-                ],
-                correctAnswer: 0
-            },
-            {
-                question: "What is the maximum blood alcohol concentration (BAC) for drivers under 21 in Minnesota?",
-                options: [
-                    "0.02%",
-                    "0.04%",
-                    "0.08%",
-                    "Any detectable amount is illegal"
-                ],
-                correctAnswer: 0
-            },
-            {
-                question: "When driving near a school bus with flashing red lights, you must:",
-                options: [
-                    "Slow down and proceed with caution",
-                    "Stop only if you're behind the bus",
-                    "Stop at least 20 feet from the bus, whether behind it or approaching it",
-                    "Change lanes and pass carefully"
+                    "1 foot",
+                    "2 feet",
+                    "3 feet",
+                    "5 feet"
                 ],
                 correctAnswer: 2
             },
             {
-                question: "What is the primary purpose of an HOV (High Occupancy Vehicle) lane?",
+                question: "In Minnesota, what is the definition of a 'motorized bicycle'?",
                 options: [
-                    "To reduce traffic congestion by encouraging carpooling",
-                    "For emergency vehicles only",
-                    "For trucks and large vehicles",
-                    "For passing slower vehicles"
+                    "A bicycle with an electric motor that assists pedaling",
+                    "A moped with a speed capacity of 30 mph or less",
+                    "Any two-wheeled vehicle with an engine",
+                    "A bicycle with more than two gears"
                 ],
-                correctAnswer: 0
+                correctAnswer: 1
+            },
+            {
+                question: "How far away from a firefighting vehicle on an emergency run must other vehicles stay?",
+                options: [
+                    "At least 100 feet",
+                    "At least 200 feet",
+                    "At least 500 feet",
+                    "At least 1000 feet"
+                ],
+                correctAnswer: 2
             },
             {
                 question: "What does a solid white line between lanes indicate?",
                 options: [
                     "Changing lanes is encouraged",
                     "Changing lanes is discouraged",
-                    "The lane is reserved for turning",
-                    "The lane is reserved for emergency vehicles"
+                    "Lane is reserved for turning",
+                    "Lane is for emergency vehicles only"
                 ],
                 correctAnswer: 1
             },
             {
-                question: "When parking uphill with a curb, which way should you turn your wheels?",
+                question: "What do double solid yellow lines on a roadway indicate?",
                 options: [
-                    "Away from the curb",
-                    "Toward the curb",
-                    "Parallel to the curb",
-                    "It doesn't matter"
-                ],
-                correctAnswer: 0
-            },
-            {
-                question: "What does a green arrow signal mean?",
-                options: [
-                    "Yield to oncoming traffic before turning",
-                    "Stop, then proceed if clear",
-                    "You may proceed in the direction of the arrow",
-                    "The light will soon change to red"
+                    "Passing is permitted in one direction",
+                    "Passing is permitted in both directions",
+                    "No passing is allowed",
+                    "Lane is for carpoolers only"
                 ],
                 correctAnswer: 2
             },
             {
-                question: "How many drinks does it take to affect driving ability?",
+                question: "What is the primary benefit of the 'zipper merge' procedure?",
                 options: [
-                    "It depends on your weight",
-                    "At least three drinks",
-                    "Five or more drinks",
-                    "Even one drink can affect driving ability"
+                    "Increases speed on freeways",
+                    "Reduces traffic backups and congestion",
+                    "Allows more vehicles in a lane",
+                    "Eliminates the need for turn signals"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the purpose of an HOV (High Occupancy Vehicle) lane?",
+                options: [
+                    "For buses and motorcycles only",
+                    "For vehicles carrying two or more people",
+                    "For emergency vehicles",
+                    "For vehicles exceeding the speed limit"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What should you do when you see a student safety patrol helping schoolmates cross a street?",
+                options: [
+                    "Slow down and proceed with caution",
+                    "Come to a complete stop",
+                    "Honk your horn to alert them",
+                    "Drive around them if safe"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "Where are unmarked crosswalks typically found?",
+                options: [
+                    "Only in rural areas",
+                    "Where a road intersects a sidewalk without solid lines",
+                    "Only at marked intersections",
+                    "Only at intersections with traffic signals"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the basic rule for bicyclists regarding the flow of traffic?",
+                options: [
+                    "Ride against the flow of traffic",
+                    "Ride in the same direction as the flow of traffic",
+                    "Ride on sidewalks only",
+                    "Ride only in dedicated bicycle lanes"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When should you use hand and arm signals in addition to or instead of turn signals?",
+                options: [
+                    "At night only",
+                    "When driving a vehicle that blocks other drivers from seeing your hand signals",
+                    "During daylight hours",
+                    "When turning right on a red light"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What should you do if your view of an intersection is obstructed?",
+                options: [
+                    "Proceed with caution without stopping",
+                    "Honk and proceed",
+                    "Be prepared to stop again for traffic or pedestrians",
+                    "Speed up to clear the intersection quickly"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the 'Move Over Law' in Minnesota?",
+                options: [
+                    "Drivers must move to the left lane when an emergency vehicle is approaching",
+                    "Drivers must move to the lane farthest away from a stopped emergency vehicle if safe",
+                    "Drivers must stop in their lane when an emergency vehicle is stopped",
+                    "Drivers must speed up to avoid emergency vehicles"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When must you yield to pedestrians?",
+                options: [
+                    "Only at marked crosswalks",
+                    "Only when traffic signals indicate",
+                    "At all intersections, whether marked or unmarked crosswalks",
+                    "Only when they are using a white cane or guide dog"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "If you are involved in a traffic crash resulting only in property damage, what is the first thing you should do?",
+                options: [
+                    "Call 911 immediately",
+                    "Move to a safe location",
+                    "Exchange insurance information",
+                    "Wait for law enforcement"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the legal requirement for carrying proof of insurance in your vehicle?",
+                options: [
+                    "Only when asked by a police officer",
+                    "At all times",
+                    "Only for commercial vehicles",
+                    "Not required if you have it stored digitally"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When is it illegal to use a cell phone while driving in Minnesota?",
+                options: [
+                    "When making an emergency call",
+                    "When using hands-free mode",
+                    "To compose, read, or send electronic messages",
+                    "To report a crime"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What should you do if your vehicle stalls on railroad tracks and a train is approaching?",
+                options: [
+                    "Try to restart the engine repeatedly",
+                    "Leave the vehicle immediately and walk away at a 45-degree angle",
+                    "Stay in the vehicle and call 911",
+                    "Attempt to push the vehicle off the tracks"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What does a red regulatory sign indicate?",
+                options: [
+                    "Warning",
+                    "Guide",
+                    "Prohibits and commands",
+                    "Services"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What does a yellow warning sign indicate?",
+                options: [
+                    "Regulatory information",
+                    "Guidance",
+                    "Warning or hazard ahead",
+                    "Construction zone"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What shape is typically used for warning or hazard signs?",
+                options: [
+                    "Octagon",
+                    "Triangle",
+                    "Diamond",
+                    "Rectangle"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What does an octagon-shaped sign indicate?",
+                options: [
+                    "Yield",
+                    "Stop",
+                    "Railroad crossing",
+                    "School zone"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What does a solid yellow line on your side of the center line indicate?",
+                options: [
+                    "Passing is permitted",
+                    "Passing is not permitted",
+                    "Traffic moves in both directions",
+                    "It's a carpool lane"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What do white dashes on pavement markings indicate?",
+                options: [
+                    "No passing",
+                    "Lane is ending",
+                    "You can change lanes",
+                    "Only for turning"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What does a steady red traffic light mean?",
+                options: [
+                    "Proceed with caution",
+                    "Stop and wait for the light to change",
+                    "Yield to oncoming traffic",
+                    "Turn right on red only"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What does a flashing yellow light or arrow mean?",
+                options: [
+                    "Stop",
+                    "Caution",
+                    "Go",
+                    "Speed up"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What does a green arrow traffic signal mean?",
+                options: [
+                    "Yield to oncoming traffic",
+                    "Stop then proceed",
+                    "You may proceed in the direction of the arrow",
+                    "The light is about to turn red"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What does a red 'X' lane use control signal mean?",
+                options: [
+                    "Lane is open for traffic",
+                    "Prepare to move to another lane",
+                    "You cannot drive in this lane",
+                    "Lane is for left turns only"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the purpose of freeway ramp meters?",
+                options: [
+                    "To increase freeway speed limits",
+                    "To reduce traffic jams and crashes by controlling merging traffic",
+                    "To indicate construction zones",
+                    "To provide emergency vehicle access"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What does a diamond symbol marking on the pavement or sign indicate?",
+                options: [
+                    "Construction zone",
+                    "Warning ahead",
+                    "Lane reserved for specific use (e.g., HOV, bus, bicycle)",
+                    "Stop ahead"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What color are signs that describe services for motorists (e.g., gas, food, hospitals)?",
+                options: [
+                    "Green",
+                    "Yellow",
+                    "Blue",
+                    "Brown"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What color are signs that provide information about directions and distances?",
+                options: [
+                    "Red",
+                    "Yellow",
+                    "Green",
+                    "Blue"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What does a sign with a crossbuck and 'RR' mean?",
+                options: [
+                    "Road construction",
+                    "Railroad crossing",
+                    "Rough road ahead",
+                    "Rest area"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What does a sign depicting two arrows going in opposite directions (one up, one down) on a divided highway mean?",
+                options: [
+                    "Two-way traffic ahead",
+                    "Divided highway begins",
+                    "Divided highway ends",
+                    "Winding road ahead"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What does the 'Three-Second Rule' help you determine?",
+                options: [
+                    "Stopping distance for emergencies",
+                    "Safe following distance",
+                    "Time to react to hazards",
+                    "Speed limit in bad weather"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When driving at night, when should your headlights be on low beam?",
+                options: [
+                    "When within 100 feet of an oncoming vehicle",
+                    "When following another vehicle at 200 feet or less",
+                    "Only in foggy conditions",
+                    "Both A and B"
                 ],
                 correctAnswer: 3
             },
             {
-                question: "What does a posted speed limit tell you?",
+                question: "What should you do if your vehicle starts to hydroplane?",
                 options: [
-                    "The minimum legal speed during ideal conditions",
-                    "The maximum safe speed during ideal conditions",
-                    "The exact speed you must drive at all times",
-                    "The recommended speed during bad weather"
+                    "Brake firmly",
+                    "Accelerate",
+                    "Take your foot off the gas pedal and do not brake or turn suddenly",
+                    "Turn your wheel quickly in the opposite direction"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the recommended action if your car becomes stuck on ice or snow?",
+                options: [
+                    "Spin the tires to gain traction",
+                    "Rock the vehicle back and forth gently",
+                    "Wait for a tow truck immediately",
+                    "Turn off the engine and wait"
                 ],
                 correctAnswer: 1
             },
             {
-                question: "When approaching a railroad crossing with flashing lights, you should:",
+                question: "If your headlights suddenly go out, what is the first thing you should try?",
                 options: [
-                    "Speed up to cross quickly",
-                    "Stop at least 15 feet from the nearest rail and wait until it's safe to cross",
-                    "Slow down and check for trains",
-                    "Stop only if you see a train approaching"
+                    "Pull over immediately without lights",
+                    "Try using parking lights, hazard warning lights, or turn signals",
+                    "Honk your horn repeatedly",
+                    "Flash your high beams"
                 ],
                 correctAnswer: 1
+            },
+            {
+                question: "What should you do if your gas pedal sticks?",
+                options: [
+                    "Slam on the brakes",
+                    "Shift into park",
+                    "Try hooking your toe under the pedal to raise it",
+                    "Turn off the engine immediately"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is a common early symptom of carbon monoxide poisoning?",
+                options: [
+                    "Sudden energy burst",
+                    "Increased alertness",
+                    "Headache, dizziness, and nausea",
+                    "Clearer vision"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What should you do if your vehicle drifts onto the shoulder of the road?",
+                options: [
+                    "Swerve back onto the pavement immediately",
+                    "Stay on the shoulder and slowly release the gas pedal",
+                    "Brake hard to regain control",
+                    "Accelerate to get back on the road quickly"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When are deer most active?",
+                options: [
+                    "Mid-day",
+                    "Dusk to dawn",
+                    "Only during summer",
+                    "Only during winter"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What should you do if you encounter a flooded roadway?",
+                options: [
+                    "Drive through it slowly",
+                    "Turn around and find another route",
+                    "Accelerate quickly to get through the water",
+                    "Wait for another vehicle to cross first"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "If your vehicle enters deep water and becomes submerged, what is the safest way to exit the vehicle?",
+                options: [
+                    "Wait for the vehicle to completely fill with water",
+                    "Exit through open windows before water reaches window level",
+                    "Try to force the doors open immediately",
+                    "Wait for emergency services"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "If you see smoke rising from beneath the hood of your vehicle, what should you do?",
+                options: [
+                    "Pour water on the engine",
+                    "Pull off the road, turn off the ignition, and exit the vehicle immediately",
+                    "Continue driving to a service station",
+                    "Open the hood to see the problem"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What should you do if your windshield wipers suddenly fail during heavy rain or snow?",
+                options: [
+                    "Brake suddenly",
+                    "Speed up to get out of the rain",
+                    "Slow down and activate hazard warning lights",
+                    "Continue driving as usual"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "If your car comes into contact with a utility pole or power box, what is the first action you should take?",
+                options: [
+                    "Get out and inspect the damage",
+                    "Stay in your vehicle and call 911",
+                    "Touch the pole to check for electricity",
+                    "Try to move the car"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When should you *avoid* idling a vehicle?",
+                options: [
+                    "In a garage",
+                    "With all windows tightly closed",
+                    "When stuck in snow or mud",
+                    "All of the above"
+                ],
+                correctAnswer: 3
+            },
+            {
+                question: "What is the SIPDE system used for in driving?",
+                options: [
+                    "To perform vehicle maintenance",
+                    "To make appropriate judgments and apply them correctly in traffic situations",
+                    "To navigate using GPS",
+                    "To track fuel efficiency"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What does the 'Scan' step in the SIPDE system involve?",
+                options: [
+                    "Adjusting your mirrors",
+                    "Searching aggressively ahead, to the sides, and behind for hazards",
+                    "Predicting potential conflicts",
+                    "Deciding on a course of action"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What should you do if you miss your exit on a freeway?",
+                options: [
+                    "Back up to the exit",
+                    "Make a U-turn to return",
+                    "Proceed to the next one",
+                    "Stop on the shoulder and wait"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is a leading factor in crashes in Minnesota, accounting for at least 25 percent of all crashes annually?",
+                options: [
+                    "Speeding",
+                    "Distracted driving",
+                    "Driving under the influence",
+                    "Reckless driving"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is one type of driver distraction mentioned in the manual?",
+                options: [
+                    "Auditory (listening to music)",
+                    "Visual (looking away from the road)",
+                    "Olfactory (smelling fumes)",
+                    "Gustatory (eating while driving)"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "When driving, what can aggressive driving lead to?",
+                options: [
+                    "Improved traffic flow",
+                    "Increased road safety",
+                    "Increased risk of crashes and conflicts",
+                    "Reduced fuel consumption"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is illegal regarding carrying a load in your vehicle?",
+                options: [
+                    "Having more than three people in the front seat that obstruct view",
+                    "Carrying a load that extends more than two feet",
+                    "Transporting small items in the back seat",
+                    "Using a roof rack for luggage"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "If you are pulling a camper or trailer, what following distance should you maintain?",
+                options: [
+                    "200 feet",
+                    "300 feet",
+                    "500 feet",
+                    "1000 feet"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the maximum length for a recreational vehicle combination?",
+                options: [
+                    "50 feet",
+                    "60 feet",
+                    "70 feet",
+                    "80 feet"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the general length limit for single-unit vehicles (motor homes)?",
+                options: [
+                    "30 feet",
+                    "35 feet",
+                    "40 feet",
+                    "45 feet"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What should you do if you encounter glare from oncoming headlights while driving at night?",
+                options: [
+                    "Look directly at the headlights",
+                    "Use the white line along the edge of the road as a reference",
+                    "Turn on your high beams",
+                    "Close your eyes briefly"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the recommended action if you suspect your vehicle's brakes are failing and the pedal sinks to the floor?",
+                options: [
+                    "Pump the pedal repeatedly",
+                    "Shift into a higher gear",
+                    "Slowly apply the emergency/parking brake",
+                    "Accelerate to regain control"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "What does the 'Decide' step in the SIPDE system based on?",
+                options: [
+                    "Intuition",
+                    "Prediction of hazards",
+                    "Opinions of passengers",
+                    "Road signs only"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "How long is an instruction permit valid in Minnesota?",
+                options: [
+                    "One year",
+                    "Two years",
+                    "Three years",
+                    "Until you pass your road test"
+                ],
+                correctAnswer: 1 // Page 15
+            },
+            {
+                question: "Which of the following is *not* a requirement for the road test vehicle?",
+                options: [
+                    "Doors open from both inside and outside",
+                    "Seat belts work properly",
+                    "Vehicle must have parking assist enabled",
+                    "Headlights, taillights, turn signals, and brake lights work"
+                ],
+                correctAnswer: 2 // Page 15
+            },
+            {
+                question: "What is the fee charged for failing two consecutive written tests?",
+                options: [
+                    "$5",
+                    "$10",
+                    "$15",
+                    "$20"
+                ],
+                correctAnswer: 1 // Page 14
+            },
+            {
+                question: "When approaching a roundabout, what is the first thing you should do?",
+                options: [
+                    "Accelerate to merge quickly",
+                    "Slow down",
+                    "Stop completely before entering",
+                    "Yield to entering traffic"
+                ],
+                correctAnswer: 1 // Page 30, also 61
+            },
+            {
+                question: "In a multi-lane roundabout, if two large vehicles approach and drive through at the same time, who has the right of way?",
+                options: [
+                    "The vehicle on the left",
+                    "The vehicle on the right",
+                    "The vehicle that enters first",
+                    "Neither, they must stop"
+                ],
+                correctAnswer: 0 // Page 30
+            },
+            {
+                question: "What do J-turns help to decrease?",
+                options: [
+                    "Traffic congestion",
+                    "Fatalities and injuries from broadside crashes",
+                    "Driver distraction",
+                    "Fuel consumption"
+                ],
+                correctAnswer: 1 // Page 32
+            },
+            {
+                question: "When driving on a road with one lane in your direction, if you are going slow enough to create a traffic hazard, where should you drive?",
+                options: [
+                    "As close as possible to the left-hand curb",
+                    "As close as possible to the right-hand curb or edge of the road",
+                    "In the center of the lane",
+                    "It doesn't matter"
+                ],
+                correctAnswer: 1 // Page 33
+            },
+            {
+                question: "When is backing up generally *not* allowed on freeways or expressways?",
+                options: [
+                    "During peak hours",
+                    "Except for emergency vehicles on duty",
+                    "When lights are not working",
+                    "Never"
+                ],
+                correctAnswer: 1 // Page 34
+            },
+            {
+                question: "If a pedestrian is in a marked or unmarked crosswalk, what must a driver do?",
+                options: [
+                    "Slow down and proceed with caution",
+                    "Honk to alert the pedestrian",
+                    "Stop and wait until they have passed your lane",
+                    "Continue driving if no other vehicles are present"
+                ],
+                correctAnswer: 2 // Page 47
+            },
+            {
+                question: "What is the main purpose of bicycle lanes?",
+                options: [
+                    "For emergency vehicle parking",
+                    "To separate bicycle traffic from normal vehicle traffic",
+                    "For pedestrians to walk safely",
+                    "To allow U-turns for bicycles"
+                ],
+                correctAnswer: 1 // Page 48
+            },
+            {
+                question: "What is the speed capacity of a 'motorized bicycle' (moped)?",
+                options: [
+                    "20 mph or less",
+                    "25 mph or less",
+                    "30 mph or less",
+                    "35 mph or less"
+                ],
+                correctAnswer: 2 // Page 49
+            },
+            {
+                question: "What should you do if a motorcyclist attempts to pass you?",
+                options: [
+                    "Speed up to prevent them from passing",
+                    "Maintain your lane position and speed, and allow the rider to complete the pass",
+                    "Change lanes to block them",
+                    "Honk your horn"
+                ],
+                correctAnswer: 1 // Page 49
+            },
+            {
+                question: "What is the recommended safe following distance when behind a commercial vehicle?",
+                options: [
+                    "Same as a car",
+                    "Less than a car",
+                    "More than a car",
+                    "Not specified"
+                ],
+                correctAnswer: 2 // Page 50
+            },
+            {
+                question: "What does the 'no zones' concept refer to for commercial vehicles?",
+                options: [
+                    "Areas where parking is prohibited",
+                    "Blind spots around the vehicle where the driver cannot see you",
+                    "Areas where speeding tickets are not issued",
+                    "Lanes reserved for commercial vehicles"
+                ],
+                correctAnswer: 1 // Page 51, and image on 55
+            },
+            {
+                question: "When approaching a railroad crossing with flashing lights, how far from the nearest rail or gate should you stop?",
+                options: [
+                    "At least 5 feet",
+                    "At least 10 feet",
+                    "At least 15 feet",
+                    "At least 20 feet"
+                ],
+                correctAnswer: 1 // Page 55
+            },
+            {
+                question: "What does an orange sign with black letters indicate?",
+                options: [
+                    "Regulatory information",
+                    "Guidance",
+                    "Construction and work zones",
+                    "Motorist services"
+                ],
+                correctAnswer: 2 // Page 63
+            },
+            {
+                question: "What does a 'REDUCED SPEED AHEAD' sign mean?",
+                options: [
+                    "You must accelerate",
+                    "A slower speed limit is posted ahead; begin slowing down",
+                    "The speed limit is now optional",
+                    "Road is under construction"
+                ],
+                correctAnswer: 1 // Page 61
+            },
+            {
+                question: "What does a steady downward green arrow lane use control signal mean?",
+                options: [
+                    "You cannot drive in this lane",
+                    "Lane is closing ahead",
+                    "You are allowed to drive in the lane below the green arrow",
+                    "Lane is for turning only"
+                ],
+                correctAnswer: 2 // Page 67
+            },
+            {
+                question: "What do 'White dashes' on pavement markings indicate?",
+                options: [
+                    "No passing zone",
+                    "Lane is ending",
+                    "You can change lanes where this marking is present",
+                    "Lane reserved for bicycles"
+                ],
+                correctAnswer: 2 // Page 68
+            },
+            {
+                question: "What is the penalty for violating the posted speed limit in a work zone when workers are present?",
+                options: [
+                    "A $100 fine",
+                    "A $200 fine",
+                    "A $300 fine",
+                    "License suspension"
+                ],
+                correctAnswer: 2 // Page 63
+            },
+            {
+                question: "What does the 'Identify' step in the SIPDE system involve?",
+                options: [
+                    "Executing your decision",
+                    "Locating hazards and potential conflicts",
+                    "Adjusting your speed",
+                    "Communicating your presence"
+                ],
+                correctAnswer: 1 // Page 74
+            },
+            {
+                question: "What is a characteristic of 'Careless driving'?",
+                options: [
+                    "Driving at the posted speed limit",
+                    "Driving in a way that endangers lives or property",
+                    "Maintaining a safe following distance",
+                    "Always yielding to pedestrians"
+                ],
+                correctAnswer: 1 // Page 44
+            },
+            {
+                question: "If you fail two consecutive road tests, what additional requirement must you complete?",
+                options: [
+                    "Retake the written test",
+                    "Complete at least six hours of behind-the-wheel instruction with a licensed instructor",
+                    "Wait one year before retaking the test",
+                    "Pay a $50 fine"
+                ],
+                correctAnswer: 1 // Page 15
+            },
+            {
+                question: "Which of these is a requirement for your vehicle to be in safe working condition for the road test?",
+                options: [
+                    "Vehicle must be less than 5 years old",
+                    "Must have power steering",
+                    "Seat belts must work properly",
+                    "Must have automatic transmission"
+                ],
+                correctAnswer: 2 // Page 15
+            },
+            {
+                question: "If you are under 18 years old, who must sign and approve your provisional license application?",
+                options: [
+                    "A licensed driving instructor",
+                    "A court-appointed guardian, parent, or director of a transitional living program",
+                    "Any adult over 21 years old",
+                    "Only your biological parents"
+                ],
+                correctAnswer: 1 // Page 19
+            },
+            {
+                question: "During the first six months of holding a provisional license, what is the passenger limitation for passengers under 20?",
+                options: [
+                    "No passengers allowed",
+                    "Only one passenger under 20 allowed unless accompanied by a parent or guardian",
+                    "Up to three passengers under 20 allowed",
+                    "Any number of passengers under 20 allowed"
+                ],
+                correctAnswer: 1 // Page 19
+            },
+            {
+                question: "What is the primary purpose of a muffler on a motor vehicle?",
+                options: [
+                    "To improve fuel efficiency",
+                    "To prevent sudden or prolonged loud noises",
+                    "To reduce engine temperature",
+                    "To enhance engine performance"
+                ],
+                correctAnswer: 1 // Page 23
+            },
+            {
+                question: "When should you use your low beam headlights?",
+                options: [
+                    "When driving in heavy fog or rain",
+                    "Only on unlit roads",
+                    "When within 1000 feet of an oncoming vehicle or following at 200 feet or less",
+                    "All of the above"
+                ],
+                correctAnswer: 2 // Page 75 (combines the conditions)
+            },
+            {
+                question: "What is the recommended maximum PSI loss per month for tires?",
+                options: [
+                    "0.5 PSI",
+                    "1 PSI",
+                    "2 PSI",
+                    "5 PSI"
+                ],
+                correctAnswer: 1 // Page 24
+            },
+            {
+                question: "What is the purpose of the 'Real ID' proof of residence changes?",
+                options: [
+                    "To make it harder to get a Real ID",
+                    "To offer more options for proving residence for a REAL ID-compliant card",
+                    "To eliminate the need for proof of residence",
+                    "To require only one document for proof of residence"
+                ],
+                correctAnswer: 1 // Page 4
+            },
+            {
+                question: "What does a 'No Turn on Red' sign mean?",
+                options: [
+                    "You must turn left",
+                    "You may turn right if the way is clear",
+                    "You must wait for the traffic signal to turn green before turning",
+                    "You can turn on red if no cross traffic"
+                ],
+                correctAnswer: 2 // Page 57
+            },
+            {
+                question: "What type of signs are typically yellow-green and pentagon-shaped?",
+                options: [
+                    "Regulatory signs",
+                    "Informational signs",
+                    "School zone or pedestrian/bicycle crossing signs",
+                    "Construction zone signs"
+                ],
+                correctAnswer: 2 // Page 58
+            },
+            {
+                question: "When should you NOT enter an intersection controlled by a traffic signal?",
+                options: [
+                    "If you are turning right on red",
+                    "Unless you can move through it immediately and continuously without blocking cross traffic",
+                    "If an emergency vehicle is approaching",
+                    "During peak traffic hours"
+                ],
+                correctAnswer: 1 // Page 64
+            },
+            {
+                question: "What is the general principle of the 'Execute' step in the SIPDE system?",
+                options: [
+                    "Identifying potential hazards",
+                    "Carrying out your decision to create space and minimize harm",
+                    "Scanning the road ahead",
+                    "Predicting outcomes"
+                ],
+                correctAnswer: 1 // Page 74
+            },
+            {
+                question: "What should you *not* do if you are stopped by law enforcement?",
+                options: [
+                    "Stay calm",
+                    "Pull to the right shoulder",
+                    "Get out of the vehicle unexpectedly",
+                    "Keep hands on the steering wheel"
+                ],
+                correctAnswer: 2 // Page 45
+            },
+            {
+                question: "What is the maximum width limit for recreational vehicles without attachments extending beyond rearview mirrors?",
+                options: [
+                    "8 feet",
+                    "8 feet 6 inches",
+                    "9 feet",
+                    "10 feet"
+                ],
+                correctAnswer: 1 // Page 79
+            },
+            {
+                question: "What does it mean if your vehicle starts to 'skid'?",
+                options: [
+                    "Tires are gaining traction",
+                    "Tires lose their grip on the road surface",
+                    "Engine is overheating",
+                    "Brakes are failing"
+                ],
+                correctAnswer: 1 // Page 81
+            },
+            {
+                question: "What should you do if you become stranded in cold weather?",
+                options: [
+                    "Leave your vehicle immediately to find help",
+                    "Stay with your vehicle",
+                    "Walk in the direction of traffic",
+                    "Use all your fuel to keep the engine running constantly"
+                ],
+                correctAnswer: 1 // Page 80
+            },
+            {
+                question: "What is the recommended practice for opening doors of a parked vehicle?",
+                options: [
+                    "Open immediately if no vehicles are directly behind you",
+                    "Open only after checking for safety and ensuring it won't interfere with traffic",
+                    "Open it quickly to get out fast",
+                    "Leave it open to air out the vehicle"
+                ],
+                correctAnswer: 1 // Page 35
+            },
+            {
+                question: "What is the primary purpose of a 'crossbuck' sign?",
+                options: [
+                    "To mark a pedestrian crossing",
+                    "To indicate a railroad crossing",
+                    "To warn of a crossroad ahead",
+                    "To mark a school zone"
+                ],
+                correctAnswer: 1 // Page 58
+            },
+            {
+                question: "What is the minimum safe following distance when driving a vehicle longer than standard length or in poor road conditions?",
+                options: [
+                    "1 second",
+                    "2 seconds",
+                    "3 seconds",
+                    "4 or 5 seconds"
+                ],
+                correctAnswer: 3 // Page 75
+            },
+            {
+                question: "What does the 'Reduced Speed Ahead' sign indicate?",
+                options: [
+                    "The current speed limit is reduced",
+                    "A slower speed limit is posted ahead, begin slowing down",
+                    "It's a minimum speed zone",
+                    "You must stop ahead"
+                ],
+                correctAnswer: 1 // Page 61
+            },
+            {
+                question: "When approaching a multi-lane roundabout, what should you do with regards to lanes?",
+                options: [
+                    "Always stay in the leftmost lane",
+                    "Choose the correct lane before entering",
+                    "Change lanes within the roundabout",
+                    "Stop before entering regardless of traffic"
+                ],
+                correctAnswer: 1 // Page 30
+            },
+            {
+                question: "What should you do if you need to reach for an item inside your vehicle during a traffic stop?",
+                options: [
+                    "Reach for it immediately",
+                    "Tell the officer what you need to locate and wait for verbal permission",
+                    "Ignore the officer's request and get the item",
+                    "Throw the item out the window"
+                ],
+                correctAnswer: 1 // Page 45
+            },
+            {
+                question: "What is the general rule for driving in a traffic lane?",
+                options: [
+                    "You can weave between lanes if traffic is slow",
+                    "You must straddle lane markings to gain more space",
+                    "You must stay within a single traffic lane without weaving or straddling the lane markings",
+                    "You can use the shoulder as an extra lane"
+                ],
+                correctAnswer: 2 // Page 27
+            },
+            {
+                question: "What is the purpose of the 'Restricted license for farm work'?",
+                options: [
+                    "Allows driving to help with farm work at age 15 under certain conditions",
+                    "Allows driving only within city limits for farm work",
+                    "Allows driving any vehicle at any age",
+                    "Allows driving without a supervisor"
+                ],
+                correctAnswer: 0 // Page 17 (Updated answer)
+            },
+            {
+                question: "What is the primary function of a vehicle's horn?",
+                options: [
+                    "To announce your arrival",
+                    "To signal a turn",
+                    "To avoid a crash",
+                    "To express frustration"
+                ],
+                correctAnswer: 2 // Page 22
+            },
+            {
+                question: "What does a 'Y-Intersection Ahead' sign mean?",
+                options: [
+                    "The road ends soon, turn right or left",
+                    "Traffic is coming from your right",
+                    "The road ahead splits into two different directions",
+                    "An intersection is ahead, prepare to yield"
+                ],
+                correctAnswer: 2 // Page 60
+            },
+            {
+                question: "If your engine becomes hot, what is one immediate action you should take?",
+                options: [
+                    "Turn on the air conditioning",
+                    "Turn off any unnecessary vehicle equipment, such as the air conditioning",
+                    "Speed up to cool the engine faster",
+                    "Stop and pour water directly onto the engine"
+                ],
+                correctAnswer: 1 // Page 84
+            },
+            {
+                question: "When driving in fog, what type of headlights should you use?",
+                options: [
+                    "High beam headlights",
+                    "Low beam headlights",
+                    "No headlights",
+                    "Emergency flashers"
+                ],
+                correctAnswer: 1 // Page 23
+            },
+            {
+                question: "What is the purpose of the 'Driver's License for All' law?",
+                options: [
+                    "To allow anyone to get a license without any documentation",
+                    "To change the documents needed to get a standard driver's license, learner's permit or state ID, regardless of immigration status",
+                    "To only issue licenses to U.S. citizens",
+                    "To increase driver's license fees"
+                ],
+                correctAnswer: 1 // Page 4
+            },
+            {
+                question: "What does a 'Yield' sign mean?",
+                options: [
+                    "Come to a complete stop",
+                    "Slow down or stop if necessary and give the right of way",
+                    "Proceed without caution",
+                    "Speed up to merge"
+                ],
+                correctAnswer: 1 // Page 56
+            },
+            {
+                question: "What should you do when you are approaching a pedestrian crossing sign?",
+                options: [
+                    "Speed up to pass quickly",
+                    "Slow down and be prepared to stop for pedestrians",
+                    "Honk your horn continuously",
+                    "Assume pedestrians will yield to you"
+                ],
+                correctAnswer: 1 // Page 59
+            },
+            {
+                question: "What does a 'Slow-Moving Vehicle Emblem' indicate?",
+                options: [
+                    "A vehicle that is broken down",
+                    "A vehicle that travels at speeds of 30 mph or less",
+                    "An emergency vehicle",
+                    "A vehicle that is making frequent stops"
+                ],
+                correctAnswer: 1 // Page 60
+            },
+            {
+                question: "What is the recommended practice for maintaining alertness and concentration while driving?",
+                options: [
+                    "Listen to loud music",
+                    "Stop as often as needed (at least every 100 miles or every two hours)",
+                    "Drink coffee continuously",
+                    "Rely on 'stay awake' drugs"
+                ],
+                correctAnswer: 1 // Page 81
+            },
+            {
+                question: "If your vehicle breaks down and you need to stop on the freeway, where should you park?",
+                options: [
+                    "In the nearest traffic lane",
+                    "As far from the main roadway as possible on the shoulder",
+                    "In the median",
+                    "Next to the exit ramp"
+                ],
+                correctAnswer: 1 // Page 79
+            },
+            {
+                question: "What are 'Reversible lanes' used for?",
+                options: [
+                    "Emergency vehicle access only",
+                    "Parking during rush hour",
+                    "Helping traffic flow during rush-hour periods",
+                    "As bicycle lanes"
+                ],
+                correctAnswer: 2 // Page 70
+            },
+            {
+                question: "What is the fine for failing to stop for a school bus with its stop arm extended and red lights flashing?",
+                options: [
+                    "At least $100",
+                    "At least $250",
+                    "At least $500",
+                    "At least $1000"
+                ],
+                correctAnswer: 2 // Page 42
+            },
+            {
+                question: "What is the rule for drivers under 18 with an instruction permit or provisional license regarding cell phones?",
+                options: [
+                    "They can use a cell phone only with hands-free technology",
+                    "They are prohibited from using a cell phone, handheld or hands-free, except to call 911 in an emergency",
+                    "They can use a cell phone for navigation only",
+                    "There are no restrictions on cell phone use for drivers under 18"
+                ],
+                correctAnswer: 1 // Page 77
+            },
+            {
+                question: "What is the appropriate action when approaching a crossroad (plus sign) warning sign?",
+                options: [
+                    "Speed up",
+                    "Prepare to yield",
+                    "Stop immediately",
+                    "Change lanes"
+                ],
+                correctAnswer: 1 // Page 60
+            },
+            {
+                question: "What does a sign showing a vehicle skidding with squiggly lines behind it mean?",
+                options: [
+                    "Winding road ahead",
+                    "Slippery road",
+                    "Road closed due to ice",
+                    "Construction ahead"
+                ],
+                correctAnswer: 1 // Page 62
+            },
+            {
+                question: "What type of vehicles are typically displayed with a 'Slow-Moving Vehicle Emblem'?",
+                options: [
+                    "Emergency vehicles",
+                    "Vehicles that travel at speeds of 30 mph or less",
+                    "Large commercial trucks",
+                    "Motorcycles"
+                ],
+                correctAnswer: 1 // Page 60
             },
             {
                 question: "What should you do if your car starts to hydroplane?",
                 options: [
-                    "Brake firmly and steer straight ahead",
-                    "Accelerate slightly and steer in the direction you want to go",
+                    "Brake firmly",
+                    "Accelerate through it",
                     "Take your foot off the gas pedal and do not brake or turn suddenly",
-                    "Turn your wheel quickly in the opposite direction of the skid"
+                    "Turn the wheel sharply in the direction you want to go"
                 ],
-                correctAnswer: 2
+                correctAnswer: 2 // Page 82
+            },
+            {
+                question: "What should you do if your hood suddenly opens and obstructs your view while driving?",
+                options: [
+                    "Slam on the brakes",
+                    "Stop in the lane of traffic",
+                    "Roll down the window and lean over to look past the side of the hood, activate hazard lights, slow down and steer safely off the road",
+                    "Try to push the hood down from inside the vehicle"
+                ],
+                correctAnswer: 2 // Page 85
+            },
+            {
+                question: "What is the recommended practice for seat belt usage in Minnesota?",
+                options: [
+                    "Only the driver must wear a seat belt",
+                    "Seat belts are optional for passengers in the back seat",
+                    "All vehicles must have seat belts, and everyone must use them",
+                    "Seat belts are only for high-speed driving"
+                ],
+                correctAnswer: 2 // Page 37
+            },
+            {
+                question: "What is the minimum age to be issued a special medical driver's license in Minnesota?",
+                options: [
+                    "14",
+                    "15",
+                    "16",
+                    "18"
+                ],
+                correctAnswer: 1 // Page 21
+            },
+            {
+                question: "What does a 'Lane Ends' sign indicate?",
+                options: [
+                    "The lane is for emergencies only",
+                    "Two lanes will become one, right-lane vehicles must yield",
+                    "You can change lanes freely",
+                    "The road is closed ahead"
+                ],
+                correctAnswer: 1 // Page 62
+            },
+            {
+                question: "What must you do before making a right turn on a red light, if permitted?",
+                options: [
+                    "Signal and turn without stopping",
+                    "Come to a complete stop first and yield to cross traffic and pedestrians",
+                    "Wait for a green arrow",
+                    "Honk your horn"
+                ],
+                correctAnswer: 1 // Page 31, also 65
+            },
+            {
+                question: "What is the maximum penalty for fleeing a police officer if great bodily harm occurs?",
+                options: [
+                    "Up to 3 years in prison and $5,000 fine",
+                    "Up to 5 years in prison and $10,000 fine",
+                    "Up to 7 years in prison and $14,000 fine",
+                    "Up to 10 years in prison and $20,000 fine"
+                ],
+                correctAnswer: 2 // Page 49
+            },
+            {
+                question: "What is the recommended position for your hands on the steering wheel?",
+                options: [
+                    "10 and 2 o'clock",
+                    "12 and 6 o'clock",
+                    "8 and 4 o'clock or 9 and 3 o'clock",
+                    "Any comfortable position"
+                ],
+                correctAnswer: 2 // Page 39
+            },
+            {
+                question: "What does a 'T-Intersection Ahead' sign mean?",
+                options: [
+                    "Traffic is coming from your right",
+                    "An intersection is ahead, prepare to yield",
+                    "The road you are traveling on will end soon; prepare to turn right or left, yield to cross traffic",
+                    "The road ahead splits into two directions"
+                ],
+                correctAnswer: 2 // Page 60
+            },
+            {
+                question: "How long is a temporary paper driver's license valid after passing the road test?",
+                options: [
+                    "30 days",
+                    "Until the expiration date listed or until you receive your permanent license",
+                    "6 months",
+                    "1 year"
+                ],
+                correctAnswer: 1 // Page 17
+            },
+            {
+                question: "When are Neighborhood Electric Vehicles (NEVs) *not* allowed to be used?",
+                options: [
+                    "On streets with speed limits of 35 mph or less",
+                    "During a road test",
+                    "By anyone with a Class D driver's license",
+                    "During daylight hours"
+                ],
+                correctAnswer: 1 // Page 50
+            },
+            {
+                question: "What is the appropriate action when approaching an 'Animal-Drawn Vehicle' sign?",
+                options: [
+                    "Speed up to pass quickly",
+                    "Be alert for slow-moving, reduce speed and pass slowly",
+                    "Honk your horn repeatedly",
+                    "Assume they will yield to you"
+                ],
+                correctAnswer: 1 // Page 60
+            },
+            {
+                question: "What is the purpose of the 'Option to provide race and ethnicity data with applications' law?",
+                options: [
+                    "It is mandatory for all applicants",
+                    "It is voluntary and the data will be shared to study traffic citations, drivers' education and other related areas",
+                    "It is only for statistical purposes and not shared",
+                    "It is used to determine license eligibility"
+                ],
+                correctAnswer: 1 // Page 5
+            },
+            {
+                question: "What should you do if you need to pass a commercial vehicle on a level highway?",
+                options: [
+                    "Pass as quickly as possible, even if it means speeding",
+                    "Allow three to five seconds longer to pass than a car and ensure safe return to the right lane",
+                    "Honk your horn to alert them to speed up",
+                    "Stay in their blind spot to prevent them from changing lanes"
+                ],
+                correctAnswer: 1 // Page 50
+            },
+            {
+                question: "What is the main danger of leaving children unattended in a motor vehicle?",
+                options: [
+                    "They might adjust the radio volume",
+                    "They could engage the vehicle and cause a crash, or suffer from temperature extremes",
+                    "They might lose their belongings",
+                    "They could get bored"
+                ],
+                correctAnswer: 1 // Page 38
+            },
+            {
+                question: "What is the required waiting period for new Minnesota residents (21 and older) with a valid out-of-state license to take the written test?",
+                options: [
+                    "No waiting period, written test not required",
+                    "30 days",
+                    "60 days",
+                    "90 days"
+                ],
+                correctAnswer: 0 // Page 11
+            },
+            {
+                question: "When are you allowed to cross 'Reversible lanes'?",
+                options: [
+                    "Anytime, regardless of signals",
+                    "Only if the overhead signal above the lane has a green arrow, or if a sign permits you to do so",
+                    "Only during non-rush hours",
+                    "Never"
+                ],
+                correctAnswer: 1 // Page 70
+            },
+            {
+                question: "What does the phrase 'yield the right-of-way' mean?",
+                options: [
+                    "To insist on your turn",
+                    "To allow others to go first when necessary",
+                    "To always stop at intersections",
+                    "To speed up and merge"
+                ],
+                correctAnswer: 1 // General knowledge, implied throughout right-of-way sections
+            },
+            {
+                question: "What is the meaning of a 'Traffic Signal Ahead' sign?",
+                options: [
+                    "There is a traffic signal at the next intersection",
+                    "The traffic signal is out of order",
+                    "You must stop before the traffic signal",
+                    "The traffic signal is turning green"
+                ],
+                correctAnswer: 0 // Page 61
+            },
+            {
+                question: "What is the first step in applying for a provisional license?",
+                options: [
+                    "Pass the road test",
+                    "Submit a supervised driving log",
+                    "Be at least 16 years old",
+                    "Obtain an instruction permit and hold it for six months"
+                ],
+                correctAnswer: 3 // Page 15 (Graduated Driver's Licensing system flow)
+            },
+            {
+                question: "What must you do if you are involved in a traffic crash where someone is injured or killed?",
+                options: [
+                    "Leave the scene immediately",
+                    "Call the nearest law enforcement agency or 911 as quickly as possible",
+                    "Exchange information with the other driver only",
+                    "Wait for the other driver to call for help"
+                ],
+                correctAnswer: 1 // Page 39
+            },
+            {
+                question: "When must you dim your headlights when approaching an oncoming vehicle?",
+                options: [
+                    "Within 50 feet",
+                    "Within 100 feet",
+                    "Within 500 feet",
+                    "Within 1000 feet"
+                ],
+                correctAnswer: 3 // Page 75
+            },
+            {
+                question: "What is the recommended practice for passing a large commercial vehicle going downhill?",
+                options: [
+                    "Speed up to pass quickly",
+                    "Allow more distance to pass",
+                    "Stay close behind them",
+                    "Pass on the right side only"
+                ],
+                correctAnswer: 1 // Page 50
+            },
+            {
+                question: "What is the correct way to wear a lap belt?",
+                options: [
+                    "Across your abdomen",
+                    "Loosely across your hips",
+                    "Snugly across your hipbones or upper thighs",
+                    "Under your arm"
+                ],
+                correctAnswer: 2 // Page 37
+            },
+            {
+                question: "What does a 'Winding Road Ahead' sign indicate?",
+                options: [
+                    "Road closed due to winding conditions",
+                    "The road ahead winds back and forth, slow to a safe or indicated speed",
+                    "Road for recreational vehicles only",
+                    "High wind advisory"
+                ],
+                correctAnswer: 1 // Page 61
+            },
+            {
+                question: "What is the purpose of 'Lane Use Control Signals'?",
+                options: [
+                    "To indicate speed limits",
+                    "To allow lanes to be used by traffic from different directions at different times",
+                    "To alert drivers of traffic jams",
+                    "To warn of a railroad crossing"
+                ],
+                correctAnswer: 1 // Page 67
+            },
+            {
+                question: "What should you do if your anti-lock brakes (ABS) activate?",
+                options: [
+                    "Pump the brake pedal rapidly",
+                    "Press down on the brake pedal and continue to steer the vehicle",
+                    "Release the brake pedal completely",
+                    "Shift to neutral"
+                ],
+                correctAnswer: 1 // Page 81
+            },
+            {
+                question: "What does 'Reintegration license' allow for individuals getting released from prison?",
+                options: [
+                    "A permanent driver's license immediately",
+                    "A valid temporary driver's license without paying outstanding fines or reinstatement fees, with eligibility requirements",
+                    "Driving privileges for commercial vehicles",
+                    "Exemption from all traffic laws"
+                ],
+                correctAnswer: 1 // Page 6
+            },
+            {
+                question: "What should you do if you are driving in heavy rain or fog and cannot see a safe distance ahead?",
+                options: [
+                    "Turn on high beams",
+                    "Accelerate to get out of the conditions faster",
+                    "Pull off the road and stop until visibility improves",
+                    "Follow the vehicle in front of you very closely"
+                ],
+                correctAnswer: 2 // Page 81
+            },
+            {
+                question: "What is the speed limit in a school zone when children are present?",
+                options: [
+                    "25 mph",
+                    "30 mph",
+                    "You must slow down",
+                    "The posted speed limit applies"
+                ],
+                correctAnswer: 2 // Page 29
+            },
+            {
+                question: "What does a 'Divided Highway Ends' sign mean?",
+                options: [
+                    "The road is dividing, stay to the right",
+                    "Two-way traffic will no longer be divided by a center island",
+                    "It is safe to make a U-turn",
+                    "The highway is closing"
+                ],
+                correctAnswer: 1 // Page 61
+            },
+            {
+                question: "What are 'Ramp meters' typically used for on freeways?",
+                options: [
+                    "To increase speed limits",
+                    "To control the flow of merging traffic and reduce jams",
+                    "To provide information on exits",
+                    "For emergency vehicle access only"
+                ],
+                correctAnswer: 1 // Page 73
+            },
+            {
+                question: "When can you apply for an 'Enhanced driver's license or ID'?",
+                options: [
+                    "Only if you provide proof of identity, SSN, photographic identity, Minnesota residency, and U.S. citizenship",
+                    "If you have any valid ID",
+                    "If you are a foreign exchange student",
+                    "If you only have a temporary license"
+                ],
+                correctAnswer: 0 // Page 13
+            },
+            {
+                question: "What is the primary purpose of 'Child passive restraint' laws?",
+                options: [
+                    "To allow children to sit in the front seat",
+                    "To ensure children under 13 ride in the back seat if available, using appropriate car seats/booster seats",
+                    "To make car seats optional for children",
+                    "To exempt children from seat belt laws"
+                ],
+                correctAnswer: 1 // Page 4
+            },
+            {
+                question: "What is the most effective way to prevent hydroplaning?",
+                options: [
+                    "Maintain high speed in wet conditions",
+                    "Keep tires in good condition and reduce speed when driving on wet roads",
+                    "Brake firmly when driving in rain",
+                    "Increase tire pressure above recommended levels"
+                ],
+                correctAnswer: 1 // Page 82
+            },
+            {
+                question: "What is required before taking the written test if you are under 18?",
+                options: [
+                    "Proof of employment",
+                    "A certificate of enrollment from an approved driver education course",
+                    "A parent must be present during the test",
+                    "Completion of the road test"
+                ],
+                correctAnswer: 1 // Page 14
+            },
+            {
+                question: "What does a 'NO PASSING ZONE' sign typically indicate?",
+                options: [
+                    "Passing is allowed with caution",
+                    "The beginning of a no-passing zone",
+                    "End of a construction zone",
+                    "An upcoming intersection"
+                ],
+                correctAnswer: 1 // Page 59
+            },
+            {
+                question: "What must you do when a school bus activates flashing yellow lights in a speed zone of 35 mph or less?",
+                options: [
+                    "Speed up to pass before it stops",
+                    "Prepare to stop as the bus is about to stop to load or unload students",
+                    "Change lanes to avoid the bus",
+                    "You don't need to do anything until the red lights flash"
+                ],
+                correctAnswer: 1 // Page 41
+            },
+            {
+                question: "What does 'Traffic-control signals' promote?",
+                options: [
+                    "Faster travel times",
+                    "Safety and orderly traffic flow at intersections with high traffic volume",
+                    "Random traffic patterns",
+                    "Increased congestion"
+                ],
+                correctAnswer: 1 // Page 64
+            },
+            {
+                question: "What is the significance of the 'Information directory and index' chapter in the manual?",
+                options: [
+                    "It provides a list of common traffic violations",
+                    "It helps locate services and information related to driving in Minnesota",
+                    "It details all the new laws enacted in the current year",
+                    "It outlines the complete history of Minnesota driving laws"
+                ],
+                correctAnswer: 1 // Page 98 (from the provided PDF snippet)
+            },
+            {
+                question: "How should you properly adjust a shoulder belt?",
+                options: [
+                    "Loosely across your chest",
+                    "Snugly across your chest and the middle of your shoulder",
+                    "Under your arm",
+                    "Behind your back"
+                ],
+                correctAnswer: 1 // Page 37
+            },
+            {
+                question: "What is the consequence of failing to provide proof of insurance when asked by a law enforcement officer?",
+                options: [
+                    "A warning only",
+                    "Revocation of your driver's license and vehicle registration",
+                    "A small fine",
+                    "Mandatory driver's education course"
+                ],
+                correctAnswer: 1 // Page 40
+            },
+            {
+                question: "What should you do if your vehicle's brakes fail and the pedal sinks to the floor, and pumping doesn't work?",
+                options: [
+                    "Try to accelerate and steer through it",
+                    "Slowly apply your emergency/parking brake",
+                    "Turn off the engine immediately",
+                    "Open the car door to create drag"
+                ],
+                correctAnswer: 1 // Page 82
+            },
+            {
+                question: "What does a 'Green' colored sign typically indicate?",
+                options: [
+                    "Warning",
+                    "Regulatory",
+                    "Guidance and information",
+                    "Services"
+                ],
+                correctAnswer: 2 // Page 58
+            },
+            {
+                question: "What is the primary danger of driving in another driver's 'blind spot'?",
+                options: [
+                    "It can cause them to speed up",
+                    "The other driver may not see you",
+                    "It increases fuel consumption",
+                    "It blocks your view of the road"
+                ],
+                correctAnswer: 1 // Page 31
+            },
+            {
+                question: "When driving in work zones, what is a key instruction?",
+                options: [
+                    "Maintain normal speed limits",
+                    "Speed up to clear the zone quickly",
+                    "Slow down and drive with care",
+                    "Ignore flag persons"
+                ],
+                correctAnswer: 2 // Page 29, 53
+            },
+            {
+                question: "What type of vehicles are required to display a 'Slow-Moving Vehicle Emblem'?",
+                options: [
+                    "All commercial vehicles",
+                    "Vehicles that travel at speeds of 30 mph or less",
+                    "Emergency vehicles",
+                    "Recreational vehicles"
+                ],
+                correctAnswer: 1 // Page 60
+            },
+            {
+                question: "What should you do if you encounter a 'Two-way Traffic Ahead' sign?",
+                options: [
+                    "You are entering a one-way road",
+                    "You are leaving a one-way road and entering a two-way road; stay to the right",
+                    "You are on a divided highway",
+                    "The road is about to narrow"
+                ],
+                correctAnswer: 1 // Page 61
+            },
+            {
+                question: "What does a 'Steep Hill' warning sign indicate?",
+                options: [
+                    "A road that goes uphill steeply",
+                    "A road that declines steeply; make sure brakes are in working order",
+                    "A flat road with loose gravel",
+                    "A winding road"
+                ],
+                correctAnswer: 1 // Page 62
+            },
+            {
+                question: "What is the recommended action if you are being followed too closely by another vehicle?",
+                options: [
+                    "Speed up to increase distance",
+                    "Brake suddenly",
+                    "Slow down slightly and allow them to pass",
+                    "Change lanes abruptly"
+                ],
+                correctAnswer: 2 // Page 75
+            },
+            {
+                question: "What is the purpose of 'Message signs' on freeways?",
+                options: [
+                    "To provide entertainment",
+                    "To warn drivers of traffic crashes, stalled vehicles, or other traffic conditions",
+                    "To display advertisements",
+                    "To give directions to rest stops"
+                ],
+                correctAnswer: 1 // Page 77
             }
         ];
         
@@ -650,7 +2530,7 @@
         let currentTest = {
             questions: [],
             currentQuestionIndex: 0,
-            selectedAnswers: [],
+            selectedAnswers: [], // Stores the index of the selected option for each question
             score: 0
         };
         
@@ -744,227 +2624,190 @@
                     return;
                 }
                 
+                currentTest.currentQuestionIndex = index;
                 const question = currentTest.questions[index];
                 
                 // Validate question data
-                if (!question || !question.options || !question.options.length) {
-                    showError("Question data is invalid or incomplete");
-                    skipQuestion();
+                if (!question || !question.question || !question.options || !Array.isArray(question.options) || question.options.length === 0 || question.correctAnswer === undefined) {
+                    showError("Error: Malformed question data.");
+                    returnHome();
                     return;
                 }
-                
-                // Update question counter and progress bar
-                questionCounter.textContent = `Question ${index + 1} of ${testConfig.questionsPerTest}`;
-                const progress = ((index + 1) / testConfig.questionsPerTest) * 100;
-                progressBar.style.width = `${progress}%`;
-                
-                // Display question text with animation
+
                 questionText.textContent = question.question;
-                questionText.classList.add('animate-fade-in');
-                setTimeout(() => questionText.classList.remove('animate-fade-in'), 300);
-                
-                // Clear previous options and feedback
-                optionsContainer.innerHTML = '';
+                optionsContainer.innerHTML = ''; // Clear previous options
                 feedbackContainer.classList.add('hidden');
+                feedbackContainer.innerHTML = ''; // Clear previous feedback
                 nextBtn.classList.add('hidden');
-                
-                // Add skip button for users who want to skip a question
-                skipBtn.classList.remove('hidden');
-                
-                // Add options with animation delay
-                question.options.forEach((option, optIndex) => {
+                skipBtn.classList.remove('hidden'); // Show skip button
+
+                question.options.forEach((option, i) => {
                     const button = document.createElement('button');
                     button.textContent = option;
-                    button.className = 'option-button w-full p-4 text-base font-medium rounded-xl shadow-md dark:shadow-lg bg-white dark:bg-dark-850 hover:bg-gray-50 dark:hover:bg-dark-800 transition-all duration-200 animate-scale-in';
-                    button.style.animationDelay = `${optIndex * 0.1}s`;
-                    button.addEventListener('click', () => handleAnswerSelection(optIndex));
+                    button.classList.add(
+                        'option-button',
+                        'w-full', 'py-3', 'px-4', 'text-left', 'rounded-lg', 'shadow-sm',
+                        'focus:outline-none', 'focus:ring-2', 'focus:ring-primary-500',
+                        'bg-gray-100', 'hover:bg-gray-200', 'text-gray-800',
+                        'dark:bg-dark-800', 'dark:hover:bg-dark-700', 'dark:text-gray-100'
+                    );
+                    button.addEventListener('click', () => selectOption(i));
                     optionsContainer.appendChild(button);
                 });
-            } catch (error) {
-                console.error("Error showing question:", error);
-                showError("An error occurred while displaying the question. Please try again.");
-                skipQuestion();
+
+                updateProgressBar();
+                updateQuestionCounter();
+            } catch (e) {
+                console.error("Error showing question:", e);
+                showError("An unexpected error occurred while loading the question.");
+                returnHome();
             }
         }
         
-        // Skip the current question
-        function skipQuestion() {
-            // Mark this question as skipped (undefined answer)
-            currentTest.selectedAnswers[currentTest.currentQuestionIndex] = undefined;
-            
-            // Show a brief notification
-            feedbackContainer.innerHTML = '<div class="text-gray-600 dark:text-gray-400 font-medium">Question skipped</div>';
-            feedbackContainer.classList.remove('hidden');
-            feedbackContainer.classList.add('bg-gray-50', 'dark:bg-gray-800/50', 'rounded-xl');
-            
-            // Hide skip button
-            skipBtn.classList.add('hidden');
-            
-            // Move to next question after a short delay
-            setTimeout(() => {
-                showNextQuestion();
-            }, 1000);
-        }
-        
-        // Handle answer selection
-        function handleAnswerSelection(selectedIndex) {
+        // Handle option selection
+        function selectOption(selectedIndex) {
+            const currentQuestion = currentTest.questions[currentTest.currentQuestionIndex];
+            const isCorrect = selectedIndex === currentQuestion.correctAnswer;
+
             // Store the selected answer
-            currentTest.selectedAnswers[currentTest.currentQuestionIndex] = selectedIndex;
-            
-            // Highlight all options to show correct/incorrect
-            const options = optionsContainer.querySelectorAll('.option-button');
-            const correctIndex = currentTest.questions[currentTest.currentQuestionIndex].correctAnswer;
-            
-            options.forEach((option, index) => {
-                // Disable all option buttons
-                option.disabled = true;
-                
-                // Style based on correctness
-                if (index === correctIndex) {
-                    option.classList.add('bg-success-100', 'dark:bg-success-900/30', 'border-success-300', 'dark:border-success-700');
-                } else if (index === selectedIndex) {
-                    if (selectedIndex !== correctIndex) {
-                        option.classList.add('bg-error-100', 'dark:bg-error-900/30', 'border-error-300', 'dark:border-error-700', 'animate-shake');
-                    }
-                } else {
-                    option.classList.add('opacity-50');
-                }
-            });
-            
-            // Show feedback
-            const isCorrect = selectedIndex === correctIndex;
-            
-            if (isCorrect) {
-                feedbackContainer.innerHTML = '<div class="text-success-600 dark:text-success-400 font-medium">Correct!</div>';
-                feedbackContainer.classList.add('bg-success-50', 'dark:bg-success-900/20', 'rounded-xl');
-            } else {
-                feedbackContainer.innerHTML = `
-                    <div class="text-error-600 dark:text-error-400 font-medium">
-                        Incorrect. The correct answer is: ${currentTest.questions[currentTest.currentQuestionIndex].options[correctIndex]}
-                    </div>
-                `;
-                feedbackContainer.classList.add('bg-error-50', 'dark:bg-error-900/20', 'rounded-xl');
-            }
-            
-            feedbackContainer.classList.remove('hidden');
-            
-            // Hide skip button
-            skipBtn.classList.add('hidden');
-            
-            // Show next button
-            nextBtn.classList.remove('hidden');
-            nextBtn.disabled = false;
-            
-            // Update score if correct
+            currentTest.selectedAnswers[currentTest.currentQuestionIndex] = {
+                question: currentQuestion.question,
+                selectedOption: currentQuestion.options[selectedIndex],
+                correctOption: currentQuestion.options[currentQuestion.correctAnswer],
+                isCorrect: isCorrect
+            };
+
+            // Update score
             if (isCorrect) {
                 currentTest.score++;
+                showFeedback(true, "Correct! Well done.");
+            } else {
+                showFeedback(false, `Incorrect. The correct answer was: "${currentQuestion.options[currentQuestion.correctAnswer]}."`);
+            }
+
+            // Disable all option buttons after selection
+            Array.from(optionsContainer.children).forEach((button, i) => {
+                button.disabled = true;
+                if (i === currentQuestion.correctAnswer) {
+                    button.classList.remove('bg-gray-100', 'hover:bg-gray-200', 'dark:bg-dark-800', 'dark:hover:bg-dark-700');
+                    button.classList.add('bg-success-200', 'text-success-800', 'dark:bg-success-800', 'dark:text-success-200');
+                } else if (i === selectedIndex) {
+                    button.classList.remove('bg-gray-100', 'hover:bg-gray-200', 'dark:bg-dark-800', 'dark:hover:bg-dark-700');
+                    button.classList.add('bg-error-200', 'text-error-800', 'dark:bg-error-800', 'dark:text-error-200', 'animate-shake');
+                }
+            });
+
+            nextBtn.classList.remove('hidden');
+            skipBtn.classList.add('hidden'); // Hide skip button once an answer is selected
+        }
+
+        // Show feedback (correct/incorrect)
+        function showFeedback(isCorrect, message) {
+            feedbackContainer.textContent = message;
+            feedbackContainer.classList.remove('hidden');
+            if (isCorrect) {
+                feedbackContainer.classList.remove('bg-error-50', 'dark:bg-error-900/20', 'text-error-600', 'dark:text-error-400');
+                feedbackContainer.classList.add('bg-success-50', 'dark:bg-success-900/20', 'text-success-600', 'dark:text-success-400', 'animate-fade-in');
+            } else {
+                feedbackContainer.classList.remove('bg-success-50', 'dark:bg-success-900/20', 'text-success-600', 'dark:text-success-400');
+                feedbackContainer.classList.add('bg-error-50', 'dark:bg-error-900/20', 'text-error-600', 'dark:text-error-400', 'animate-shake');
             }
         }
         
-        // Show the next question or results if done
+        // Skip current question
+        function skipQuestion() {
+            // Record as an unanswered question
+            const currentQuestion = currentTest.questions[currentTest.currentQuestionIndex];
+            currentTest.selectedAnswers[currentTest.currentQuestionIndex] = {
+                question: currentQuestion.question,
+                selectedOption: 'Skipped',
+                correctOption: currentQuestion.options[currentQuestion.correctAnswer],
+                isCorrect: false // Skipped questions are considered incorrect for scoring
+            };
+            showNextQuestion();
+        }
+
+        // Move to the next question or show results
         function showNextQuestion() {
             currentTest.currentQuestionIndex++;
-            
-            if (currentTest.currentQuestionIndex < testConfig.questionsPerTest) {
+            if (currentTest.currentQuestionIndex < currentTest.questions.length) {
                 showQuestion(currentTest.currentQuestionIndex);
             } else {
                 showResults();
             }
         }
         
-        // Show test results
-        function showResults() {
-            try {
-                // Hide test screen
-                testScreen.classList.add('hidden');
-                resultsScreen.classList.remove('hidden');
-                
-                // Count skipped questions
-                const skippedCount = currentTest.selectedAnswers.filter(answer => answer === undefined).length;
-                
-                // Calculate percentage score based on answered questions
-                const percentage = (currentTest.score / testConfig.questionsPerTest) * 100;
-                const passed = percentage >= testConfig.passingPercentage;
-                
-                // Update score display
-                scoreDisplay.textContent = `${percentage.toFixed(0)}%`;
-                
-                if (passed) {
-                    passFailDisplay.textContent = 'Passed! 🎉';
-                    passFailDisplay.classList.add('text-success-600', 'dark:text-success-400');
-                    // Celebrate with confetti
-                    setTimeout(celebratePass, 500);
-                } else {
-                    passFailDisplay.textContent = 'Failed';
-                    passFailDisplay.classList.add('text-error-600', 'dark:text-error-400');
-                }
-                
-                let scoreDetailsText = `You answered ${currentTest.score} out of ${testConfig.questionsPerTest} questions correctly.`;
-                if (skippedCount > 0) {
-                    scoreDetailsText += ` (${skippedCount} question${skippedCount > 1 ? 's' : ''} skipped)`;
-                }
-                scoreDetails.textContent = scoreDetailsText;
-                
-                // Generate question review
-                questionsReview.innerHTML = '';
-                
-                currentTest.questions.forEach((question, index) => {
-                    const userAnswer = currentTest.selectedAnswers[index];
-                    const correctAnswer = question.correctAnswer;
-                    
-                    // Handle three states: correct, incorrect, or skipped
-                    let isCorrect = false;
-                    let isSkipped = userAnswer === undefined;
-                    
-                    if (!isSkipped) {
-                        isCorrect = userAnswer === correctAnswer;
-                    }
-                    
-                    let reviewClass = '';
-                    if (isSkipped) {
-                        reviewClass = 'border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50';
-                    } else {
-                        reviewClass = isCorrect ? 
-                            'border border-success-200 dark:border-success-800 bg-success-50 dark:bg-success-900/20' : 
-                            'border border-error-200 dark:border-error-800 bg-error-50 dark:bg-error-900/20';
-                    }
-                    
-                    const reviewItem = document.createElement('div');
-                    reviewItem.className = `p-3 rounded-xl ${reviewClass} animate-fade-in`;
-                    reviewItem.style.animationDelay = `${index * 0.05}s`;
-                    
-                    let userAnswerText = 'Skipped';
-                    if (!isSkipped) {
-                        userAnswerText = question.options[userAnswer] || 'Invalid answer';
-                    }
-                    
-                    reviewItem.innerHTML = `
-                        <p class="font-medium mb-2">${index + 1}. ${question.question}</p>
-                        <p class="text-sm ${isSkipped ? 'text-gray-500 dark:text-gray-400' : ''}">Your answer: ${userAnswerText}</p>
-                        <p class="text-sm ${isCorrect ? 'text-success-600 dark:text-success-400' : isSkipped ? 'text-gray-600 dark:text-gray-300' : 'text-error-600 dark:text-error-400'}">
-                            Correct answer: ${question.options[correctAnswer]}
-                        </p>
-                    `;
-                    
-                    questionsReview.appendChild(reviewItem);
-                });
-            } catch (error) {
-                console.error("Error showing results:", error);
-                showError("An error occurred while displaying results. Please try again.");
-                returnHome();
-            }
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentTest.currentQuestionIndex + 1) / currentTest.questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
         }
         
-        // Return to the home screen
+        // Update question counter
+        function updateQuestionCounter() {
+            questionCounter.textContent = `Question ${currentTest.currentQuestionIndex + 1} of ${currentTest.questions.length}`;
+        }
+        
+        // Display test results
+        function showResults() {
+            testScreen.classList.add('hidden');
+            resultsScreen.classList.remove('hidden');
+
+            const totalQuestions = currentTest.questions.length;
+            const percentage = (currentTest.score / totalQuestions) * 100;
+
+            scoreDisplay.textContent = `${currentTest.score} / ${totalQuestions}`;
+            scoreDetails.textContent = `You answered ${currentTest.score} out of ${totalQuestions} questions correctly. That's ${percentage.toFixed(1)}%.`;
+
+            if (percentage >= testConfig.passingPercentage) {
+                passFailDisplay.textContent = "Congratulations! You passed!";
+                passFailDisplay.classList.remove('text-error-600', 'dark:text-error-400');
+                passFailDisplay.classList.add('text-success-600', 'dark:text-success-400');
+                celebratePass();
+            } else {
+                passFailDisplay.textContent = "Keep practicing! You did not pass.";
+                passFailDisplay.classList.remove('text-success-600', 'dark:text-success-400');
+                passFailDisplay.classList.add('text-error-600', 'dark:text-error-400');
+            }
+
+            // Review questions
+            questionsReview.innerHTML = ''; // Clear previous review
+            currentTest.selectedAnswers.forEach((answer, index) => {
+                const questionData = currentTest.questions[index];
+                const reviewItem = document.createElement('div');
+                reviewItem.classList.add('p-4', 'rounded-lg', 'shadow-sm', 'mb-3', 'glass-card');
+
+                let statusClass = 'text-gray-800 dark:text-gray-100';
+                let statusText = '';
+                if (answer.selectedOption === 'Skipped') {
+                    statusClass = 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300';
+                    statusText = 'Skipped';
+                } else if (answer.isCorrect) {
+                    statusClass = 'bg-success-50 dark:bg-success-900/20 text-success-700 dark:text-success-300';
+                    statusText = 'Correct';
+                } else {
+                    statusClass = 'bg-error-50 dark:bg-error-900/20 text-error-700 dark:text-error-300';
+                    statusText = 'Incorrect';
+                }
+
+                reviewItem.innerHTML = `
+                    <p class="font-medium mb-2">${index + 1}. ${questionData.question}</p>
+                    <p class="text-sm">Your Answer: <span class="font-semibold">${answer.selectedOption}</span></p>
+                    <p class="text-sm">Correct Answer: <span class="font-semibold">${answer.correctOption}</span></p>
+                    <div class="mt-2 text-xs font-bold px-3 py-1 rounded-full inline-block ${statusClass}">${statusText}</div>
+                `;
+                questionsReview.appendChild(reviewItem);
+            });
+        }
+
+        // Return to home screen
         function returnHome() {
+            testScreen.classList.add('hidden');
             resultsScreen.classList.add('hidden');
             homeScreen.classList.remove('hidden');
-            
-            // Reset UI elements
-            passFailDisplay.classList.remove('text-success-600', 'dark:text-success-400', 'text-error-600', 'dark:text-error-400');
         }
-        
-        // Initialize the application
+
+        // Initialize the app when the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', initApp);
     </script>
 </body>
