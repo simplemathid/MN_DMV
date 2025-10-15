@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "https://www.mndmvquiz.org/*"
+  to = "https://mndmvquiz.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://mndmvquiz.netlify.app/*"
+  to = "https://mndmvquiz.org/:splat"
+  status = 301
+  force = true
